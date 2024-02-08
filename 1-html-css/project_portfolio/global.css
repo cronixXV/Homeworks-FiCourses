@@ -1,0 +1,11 @@
+.bold__descr {
+  font-weight: bold;
+}
+
+.italic__descr {
+  font-style: italic;
+}
+
+li {
+  text-transform: uppercase;
+}

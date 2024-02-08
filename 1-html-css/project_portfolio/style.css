@@ -1,0 +1,18 @@
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgb(238, 96, 96);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #fea501;
+}
+.footer {
+  background-color: beige;
+  color: gray;
+}
