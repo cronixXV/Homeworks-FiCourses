@@ -1,11 +1,17 @@
-.bold__descr {
-  font-weight: bold;
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
 }
 
-.italic__descr {
-  font-style: italic;
+a:link {
+  text-decoration: none;
+  color: rgb(238, 96, 96);
 }
 
+a:hover {
+  text-decoration: underline;
+  color: #fea501;
+}
 .footer {
   background-color: beige;
   color: gray;
