@@ -1,3 +1,10 @@
+.menu li {
+  display: inline;
+  list-style: none;
+  padding-right: 15px;
+  font-size: 16px;
+}
+
 p {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
@@ -12,6 +19,19 @@ a:hover {
   text-decoration: underline;
   color: #fea501;
 }
+
+.landing {
+  padding: 10px;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+.site_watches {
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid black;
+}
+
 .footer {
   background-color: beige;
   color: gray;
