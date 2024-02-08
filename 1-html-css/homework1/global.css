@@ -1,0 +1,19 @@
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+li {
+  text-transform: uppercase;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgb(238, 96, 96);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #fea501;
+}
