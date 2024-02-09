@@ -2,12 +2,12 @@
   display: inline;
   list-style: none;
   padding-right: 15px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 p {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-family: Oswald;
+  font-size: 1rem;
 }
 
 a:link {

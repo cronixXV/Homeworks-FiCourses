@@ -1,3 +1,7 @@
+.icon__contacts {
+  margin-top: 10px;
+}
+
 .bold__descr {
   font-weight: bold;
 }
@@ -15,5 +19,5 @@ li {
 }
 
 .reviews {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
