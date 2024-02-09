@@ -2,12 +2,20 @@
   display: inline;
   list-style: none;
   padding-right: 15px;
-  font-size: 16px;
+  font-size: 1rem;
+}
+
+.name__color {
+  color: #fea501;
+}
+
+.me__color {
+  color: #151812;
 }
 
 p {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-family: Oswald;
+  font-size: 1rem;
 }
 
 a:link {
@@ -20,16 +28,21 @@ a:hover {
   color: #fea501;
 }
 
-.landing {
+.projects {
+  margin-bottom: 0;
+}
+
+.project__item {
   padding: 10px;
   margin: 0 auto;
   border: 2px solid black;
-}
-
-.site_watches {
   padding: 10px;
   margin-top: 5px;
   border: 2px solid black;
+}
+
+.reviews {
+  font-size: 1.125rem;
 }
 
 .footer {
