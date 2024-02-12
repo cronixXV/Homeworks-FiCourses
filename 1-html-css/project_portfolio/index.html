@@ -30,13 +30,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <ul class="menu">
-            <li><a href="#">Обо мне</a></li>
-            <li><a href="#">Навыки</a></li>
-            <li><a href="#">Мои работы</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
+    <div class="header" id="header">
+        <div class="menu">
+            <ul class="menu__list">
+                <li class="menu__item"><a href="#">Обо мне</a></li>
+                <li class="menu__item"><a href="#">Навыки</a></li>
+                <li class="menu__item"><a href="#">Мои работы</a></li>
+                <li class="menu__item"><a href="#">Контакты</a></li>
+            </ul>
+        </div>
     </div>
    
     <div class="detail">
@@ -44,6 +46,7 @@
         <h1><span class="name__color">Егор</span> Груздев <span class="bi bi-person-arms-up"></span></h1>
         <p><span class="me__color">Я web-разработчик из города Владимир</span>
     <button>Свяжись со мной</button>
+    </div>
 
     <div class="icon__contacts">
         <span class="bi bi-phone"></span>
@@ -51,15 +54,15 @@
         <span class="icon-telegram"></span>
     </div>
 
+    <div class="descr">
+        <p class="description__me">
+            <span class="bold__descr">Привет! Я фронтенд-разработчик с фокусом на создании привлекательных и функциональных пользовательских интерфейсов.</span> Моей основной целью является создание веб-сайтов и веб-приложений, которые не только красиво выглядят, но и обладают высокой производительностью и удобством использования для конечных пользователей.
+        </p>
+    
+        <p>
+            <span class="italic__descr">Я специализируюсь на использовании современных технологий веб-разработки.</span> Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения корректного отображения на различных устройствах, начиная от десктопов и планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и развитию, чтобы быть в курсе последних тенденций веб-разработки и предлагать своим клиентам самые передовые и инновационные решения. Посмотрите мои проекты ниже, чтобы увидеть мои навыки и опыт в деле!
+        </p>
     </div>
-
-    <p class="description__me">
-        <span class="bold__descr">Привет! Я фронтенд-разработчик с фокусом на создании привлекательных и функциональных пользовательских интерфейсов.</span> Моей основной целью является создание веб-сайтов и веб-приложений, которые не только красиво выглядят, но и обладают высокой производительностью и удобством использования для конечных пользователей.
-    </p>
-
-    <p>
-        <span class="italic__descr">Я специализируюсь на использовании современных технологий веб-разработки.</span> Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения корректного отображения на различных устройствах, начиная от десктопов и планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и развитию, чтобы быть в курсе последних тенденций веб-разработки и предлагать своим клиентам самые передовые и инновационные решения. Посмотрите мои проекты ниже, чтобы увидеть мои навыки и опыт в деле!
-    </p>
 
     <ul>
         <li>html5</li>
@@ -75,11 +78,12 @@
         <h2>Мои работы</h2>
         <div class="project__item">
             <h3>Landing page for uber</h3>
-            <img class="uber__site" src="img/uber2.jpg" alt="uber">
+            <img class="photo__site" src="img/uber2.jpg" alt="uber"
         </div>
 
-        <div class="project__item">
+        <div class="project__item__watch">
             <h3>Shop of watches</h3>
+            <img class="photo__watch" src="img/watch.jpeg" alt="watch">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate earum deserunt nihil et quod quam minima in pariatur autem! Eveniet, provident.</p>
         </div>
     </div>
@@ -92,6 +96,12 @@
 
     <div class="footer">
         &copy; 2024. Все права защищены.
+    </div>
+
+    <div class="pageup">
+        <a href="#header">
+            <img src="circle_up.svg"up">
+        </a>
     </div>
 </body>
 </html>
