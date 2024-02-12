@@ -13,8 +13,13 @@
   color: #151812;
 }
 
+.description__me {
+  background-image: url("img/it.jpg");
+  color: aliceblue;
+}
+
 p {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 1rem;
 }
 
@@ -30,15 +35,25 @@ a:hover {
 
 .projects {
   margin-bottom: 0;
+  display: inline-block;
+}
+
+.uber__site {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uber__site:hover {
+  border: 3px solid #fea501;
+  cursor: pointer;
 }
 
 .project__item {
   padding: 10px;
   margin: 0 auto;
   border: 2px solid black;
-  padding: 10px;
   margin-top: 5px;
-  border: 2px solid black;
 }
 
 .reviews {
@@ -46,6 +61,7 @@ a:hover {
 }
 
 .footer {
-  background-color: beige;
-  color: gray;
+  background: linear-gradient(#fea501, #151812);
+  opacity: 0.95;
+  height: 100px;
 }
