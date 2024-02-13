@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="form__info">
+        <h1>Форма для оформления заказа</h1>
+        <div class="form__row">
+            <label for="name">Имя</label>
+            <input type="text" name="name" id="name" placeholder="Введите ваше имя" minlength="2" maxlength="30" required pattern="[a-zA-z+]">
+        </div>
+        <div class="form__row">
+            <label for="question">Вопрос</label>
+            <textarea name="question" id="question" cols="50" rows="5"></textarea>        
+        </div>
+    
+        <div class="form__row">
+            <label for="price">Стоимость проекта</label>
+            <input type="number" name="price" id="price" placeholder="Примерная стоимость проекта, руб." min="0"
+            max="=>200000" required>
+        </div>
+    
+        <div class="form__row">
+            <label for="stack">Используемые технологии</label>
+            <select type="text" name="stack" id="stack" multiple>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JS">Javascript</option>
+                <option value="NODE">Node.Js</option>
+            </select>
+        </div>
+    
+        <div class="form__row">
+            <label for="client-project-data">Дата начала проекта</label>
+            <input type="date" name="client-project-data" id="client-project-data" value="01.01.2023" min="01.01.2023" max="01.01.2060">
+        </div>
+    </div>
+
+        <button type="submit">Отправить форму</button>
+        <button type="reset">Сброс</button>
+    
+
+</body>
+</html>
