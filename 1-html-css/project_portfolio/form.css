@@ -35,12 +35,11 @@ button {
   color: beige;
   border-radius: 5px;
   width: 25%;
-  margin-bottom: 10px;
   cursor: pointer;
-  display: flex;
   justify-content: space-around;
   display: block;
   margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 button[type="reset"] {
