@@ -1,16 +1,49 @@
-.menu li {
-  display: inline;
-  list-style: none;
-  padding-right: 15px;
+.header {
+  display: flex;
   font-size: 1rem;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu__list {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  position: absolute;
+  top: 75px;
 }
 
 .name__color {
   color: #fea501;
+  top: 10px;
 }
 
 .me__color {
   color: #151812;
+}
+
+.icon__contacts {
+  display: flex;
+  position: absolute;
+  background-color: #fea501;
+  top: 155px;
+  gap: 5px;
+}
+
+.descr {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .description__me {
@@ -35,16 +68,17 @@ a:hover {
 
 .projects {
   margin-bottom: 0;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 
-.uber__site {
+.photo__site {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.uber__site:hover {
+.photo__site:hover {
   border: 3px solid #fea501;
   cursor: pointer;
 }
@@ -56,12 +90,40 @@ a:hover {
   margin-top: 5px;
 }
 
+.project__item__watch {
+  margin-top: 5px;
+}
+
+.photo__watch {
+  width: 700px;
+  height: 400px;
+  float: right;
+  margin-right: 20px;
+}
+
 .reviews {
+  padding-top: 10px;
   font-size: 1.125rem;
 }
 
 .footer {
+  display: flex;
   background: linear-gradient(#fea501, #151812);
   opacity: 0.95;
   height: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.pageup {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 30px;
+  height: 30px;
+}
+
+.pageup img {
+  width: 100%;
 }
