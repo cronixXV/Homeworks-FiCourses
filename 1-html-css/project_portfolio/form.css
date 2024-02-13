@@ -1,0 +1,48 @@
+.form__info {
+  padding: 30px;
+  width: 600px;
+  margin: 0 auto;
+  font-family: Oswald, sans-serif;
+}
+
+.form__info h1 {
+  margin-bottom: 35px;
+  font-family: Oswald, sans-serif;
+  text-align: center;
+}
+
+.form__row {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid grey;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: blueviolet;
+  color: beige;
+  border-radius: 5px;
+  width: 25%;
+  cursor: pointer;
+  justify-content: space-around;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+button[type="reset"] {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
