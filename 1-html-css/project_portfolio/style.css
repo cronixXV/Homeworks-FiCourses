@@ -94,11 +94,6 @@ a:hover {
   margin-top: 5px;
 }
 
-.photo__site {
-  width: 100%;
-  height: 500px;
-}
-
 .photo__watch {
   width: 700px;
   height: 400px;
@@ -127,7 +122,8 @@ html {
   right: 40px;
   width: 30px;
   height: 30px;
-  img {
-    width: 100%;
-  }
+}
+
+.pageup img {
+  width: 100%;
 }
