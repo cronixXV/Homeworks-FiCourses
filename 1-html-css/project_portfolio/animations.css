@@ -1,0 +1,14 @@
+@keyframes colors {
+  from {
+    background: linear-gradient(#fea501, #151812);
+  }
+  to {
+    background: linear-gradient(#964503, #bded8c);
+  }
+}
+
+.animation__colors {
+  animation-name: colors;
+  animation-duration: 1.8s;
+  animation-iteration-count: 3;
+}
