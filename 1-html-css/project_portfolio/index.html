@@ -27,14 +27,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="glyphter-font/css/Glyphter.css">
     <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header" id="header">
+        <input type="checkbox" class="menu-checkbox" id="menu-checkbox">
+        <label class="lines-container" for="menu-checkbox"><span class="lines-item"></span></label>
         <div class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a href="#">Обо мне</a></li>
+                <li class="menu__item"><a href="""#">Обо мне</a></li>
                 <li class="menu__item"><a href="#">Навыки</a></li>
                 <li class="menu__item"><a href="#">Мои работы</a></li>
                 <li class="menu__item"><a href="forms.html">Контакты</a></li>
@@ -46,7 +49,7 @@
         <h3>Меня зовут</h3>
         <h1><span class="name__color">Егор</span> Груздев <span class="bi bi-person-arms-up"></span></h1>
         <p><span class="me__color">Я web-разработчик из города Владимир</span>
-    <button>Свяжись со мной</button>
+    <button class="button">Свяжись со мной</button>
     </div>
 
     <div class="icon__contacts">
@@ -65,15 +68,17 @@
         </p>
     </div>
 
-    <ul>
-        <li>html5</li>
-        <li>css3</li>
-        <li>javascript</li>
-        <li>react</li>
-        <li>node. js</li>
-        <li>mongodb</li>
-        <li>express. js</li>
-    </ul>
+    <div class="stack__menu">
+        <ul class="stack">
+            <li>html5</li>
+            <li>css3</li>
+            <li>javascript</li>
+            <li>react</li>
+            <li>node. js</li>
+            <li>mongodb</li>
+            <li>express. js</li>
+        </ul>
+    </div>
 
     <div class="projects">
         <h2>Мои работы</h2>
