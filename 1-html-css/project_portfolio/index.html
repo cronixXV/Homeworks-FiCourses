@@ -1,132 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <meta name="title" content="Моë портфолио">
-    <meta name="description" content="Здесь вы можете ознакомиться с моими работами и узнать обо мне">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="iavicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="glyphter-font/css/Glyphter.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <meta name="title" content="Моë портфолио" />
+    <meta
+      name="description"
+      content="Здесь вы можете ознакомиться с моими работами и узнать обо мне"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="iavicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="glyphter-font/css/Glyphter.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="animations.css" />
+  </head>
+  <body>
     <div class="header" id="header">
-        <input type="checkbox" class="menu-checkbox" id="menu-checkbox">
-        <label class="lines-container" for="menu-checkbox"><span class="lines-item"></span></label>
-        <div class="menu">
-            <ul class="menu__list">
-                <li class="menu__item"><a href="""#">Обо мне</a></li>
-                <li class="menu__item"><a href="#">Навыки</a></li>
-                <li class="menu__item"><a href="#">Мои работы</a></li>
-                <li class="menu__item"><a href="forms.html">Контакты</a></li>
-            </ul>
-        </div>
+      <input type="checkbox" class="menu-checkbox" id="menu-checkbox" />
+      <label class="lines-container" for="menu-checkbox"
+        ><span class="lines-item"></span
+      ></label>
+      <div class="menu">
+        <ul class="menu__list">
+          <li class="menu__item"><a href="#">Обо мне</a></li>
+          <li class="menu__item"><a href="#">Навыки</a></li>
+          <li class="menu__item"><a href="#">Мои работы</a></li>
+          <li class="menu__item"><a href="forms.html">Контакты</a></li>
+        </ul>
+      </div>
     </div>
-   
+
     <div class="detail">
-        <h3>Меня зовут</h3>
-        <h1><span class="name__color">Егор</span> Груздев <span class="bi bi-person-arms-up"></span></h1>
-        <p><span class="me__color">Я web-разработчик из города Владимир</span>
-    <button class="button">Свяжись со мной</button>
+      <h3>Меня зовут</h3>
+      <h1>
+        <span class="name__color">Егор</span> Груздев
+        <span class="bi bi-person-arms-up"></span>
+      </h1>
+      <p>
+        <span class="me__color">Я web-разработчик из города Владимир</span>
+        <button class="button">Свяжись со мной</button>
+      </p>
     </div>
 
     <div class="icon__contacts">
-        <span class="bi bi-phone"></span>
-        <span class="icon-email"></span>
-        <span class="icon-telegram"></span>
+      <span class="bi bi-phone"></span>
+      <span class="icon-email"></span>
+      <span class="icon-telegram"></span>
     </div>
 
     <div class="descr">
-        <p class="description__me">
-            <span class="bold__descr">Привет! Я фронтенд-разработчик с фокусом на создании привлекательных и функциональных пользовательских интерфейсов.</span> Моей основной целью является создание веб-сайтов и веб-приложений, которые не только красиво выглядят, но и обладают высокой производительностью и удобством использования для конечных пользователей.
-        </p>
-    
-        <p>
-            <span class="italic__descr">Я специализируюсь на использовании современных технологий веб-разработки.</span> Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения корректного отображения на различных устройствах, начиная от десктопов и планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и развитию, чтобы быть в курсе последних тенденций веб-разработки и предлагать своим клиентам самые передовые и инновационные решения. Посмотрите мои проекты ниже, чтобы увидеть мои навыки и опыт в деле!
-        </p>
+      <p class="description__me">
+        <span class="bold__descr"
+          >Привет! Я фронтенд-разработчик с фокусом на создании привлекательных
+          и функциональных пользовательских интерфейсов.</span
+        >
+        Моей основной целью является создание веб-сайтов и веб-приложений,
+        которые не только красиво выглядят, но и обладают высокой
+        производительностью и удобством использования для конечных
+        пользователей.
+      </p>
+
+      <p>
+        <span class="italic__descr"
+          >Я специализируюсь на использовании современных технологий
+          веб-разработки.</span
+        >
+        Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения
+        корректного отображения на различных устройствах, начиная от десктопов и
+        планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и
+        развитию, чтобы быть в курсе последних тенденций веб-разработки и
+        предлагать своим клиентам самые передовые и инновационные решения.
+        Посмотрите мои проекты ниже, чтобы увидеть мои навыки и опыт в деле!
+      </p>
     </div>
 
     <div class="stack__menu">
-        <ul class="stack">
-            <li>html5</li>
-            <li>css3</li>
-            <li>javascript</li>
-            <li>react</li>
-            <li>node. js</li>
-            <li>mongodb</li>
-            <li>express. js</li>
-        </ul>
+      <ul class="stack">
+        <li>html5</li>
+        <li>css3</li>
+        <li>javascript</li>
+        <li>react</li>
+        <li>node. js</li>
+        <li>mongodb</li>
+        <li>express. js</li>
+      </ul>
     </div>
 
     <div class="projects">
-        <h2>Мои работы</h2>
-        <div class="project__item">
-            <h3>Landing page for uber</h3>
-            <img class="photo__site" src="img/uber2.jpg" alt="uber">
-        </div>
+      <h2>Мои работы</h2>
+      <div class="project__item">
+        <h3>Landing page for uber</h3>
+        <img class="photo__site" src="img/uber2.jpg" alt="uber" />
+      </div>
 
-        <div class="project__item project__item_watch">
-            <h3>Shop of watches</h3>
-            <img class="photo__watch" src="img/watch.jpeg" alt="watch">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate earum deserunt nihil et quod quam minima in pariatur autem! Eveniet, provident.</p>
-        </div>
+      <div class="project__item project__item_watch">
+        <h3>Shop of watches</h3>
+        <img class="photo__watch" src="img/watch.jpeg" alt="watch" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+          doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate
+          earum deserunt nihil et quod quam minima in pariatur autem! Eveniet,
+          provident.
+        </p>
+      </div>
     </div>
-
 
     <div class="reviews">
-        <a href="#">Отзывы</a>
+      <a href="#">Отзывы</a>
     </div>
 
-    <hr>
+    <hr />
 
-    <div class="footer animation__colors">
-        &copy; 2024. Все права защищены.
-    </div>
+    <div class="footer animation__colors">&copy; 2024. Все права защищены.</div>
 
     <div class="pageup">
-        <a href="#header">
-            <img src="circle_up.svg" alt="up">
-        </a>
+      <a href="#header">
+        <img src="circle_up.svg" alt="up" />
+      </a>
     </div>
     <table class="table__info">
-        <tbody>
-            <tr>
-                <td colspan="2">Технические характеристики обородования</td>
-            </tr>
-            <tr>
-                <td>Ноутбук</td>
-                <td>Macbook pro 13</td>
-            </tr>
-            <tr>
-                <td>Монитор</td>
-                <td rowspan="2">BenQ PD3420Q</td>
-            </tr>
-            <tr>
-                <td>Доп.Монитор</td>
-            </tr>
-        </tbody>
+      <tbody>
+        <tr>
+          <td colspan="2">Технические характеристики обородования</td>
+        </tr>
+        <tr>
+          <td>Ноутбук</td>
+          <td>Macbook pro 13</td>
+        </tr>
+        <tr>
+          <td>Монитор</td>
+          <td rowspan="2">BenQ PD3420Q</td>
+        </tr>
+        <tr>
+          <td>Доп.Монитор</td>
+        </tr>
+      </tbody>
     </table>
-</body>
+  </body>
 </html>

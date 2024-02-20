@@ -1,7 +1,7 @@
 :root {
   --menu-icon: rgb(31, 30, 30);
   --menu-bg: #fea501;
-  --menu-hover: #black;
+  --menu-hover: black;
   --menu-fs: 60px;
 }
 
@@ -17,6 +17,7 @@ body {
   box-shadow: 1px 1px 5px 0px var(--menu-hover);
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .menu {
@@ -28,14 +29,11 @@ body {
   top: calc(var(--menu-fs) + 5px);
   max-height: 0;
   transition: max-height 0.7s linear;
+  z-index: 100;
 }
 
 .menu__list {
   color: var(--menu-icon);
-}
-
-.menu__list:hover {
-  background-color: var(--menu-hover);
 }
 
 .lines-container {
@@ -109,5 +107,32 @@ body {
 
   .lines-container {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: end;
+  }
+
+  .menu__list {
+    width: 100vw;
+    background: black;
+  }
+
+  .menu__list:hover {
+    background: black;
+  }
+
+  .menu__item {
+    padding: 10px;
+  }
+
+  .menu__item:hover {
+    transform: none;
+  }
+
+  .menu__item a {
+    display: block;
   }
 }
