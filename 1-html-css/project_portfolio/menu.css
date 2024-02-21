@@ -1,0 +1,138 @@
+:root {
+  --menu-icon: rgb(31, 30, 30);
+  --menu-bg: #fea501;
+  --menu-hover: black;
+  --menu-fs: 60px;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  background-color: var(--menu-bg);
+  box-shadow: 1px 1px 5px 0px var(--menu-hover);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: var(--menu-bg);
+  overflow: hidden;
+  top: calc(var(--menu-fs) + 5px);
+  max-height: 0;
+  transition: max-height 0.7s linear;
+  z-index: 100;
+}
+
+.menu__list {
+  color: var(--menu-icon);
+}
+
+.lines-container {
+  padding: 25px 15px;
+  float: right;
+  cursor: pointer;
+}
+
+.lines-item {
+  background: var(--menu-icon);
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+}
+
+.lines-item::before,
+.lines-item::after {
+  background: var(--menu-icon);
+  display: block;
+  width: 100%;
+  content: "";
+  height: 100%;
+  position: absolute;
+  transition: all 0.25s linear;
+}
+
+.lines-item::before {
+  top: 7px;
+}
+
+.lines-item::after {
+  top: -7px;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-checkbox:checked ~ .menu {
+  max-height: 100%;
+}
+
+.menu-checkbox:checked ~ .lines-container .lines-item {
+  background: transparent;
+}
+
+.menu-checkbox:checked ~ .lines-container .lines-item::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.menu-checkbox:checked ~ .lines-container .lines-item::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    position: relative;
+    float: right;
+    width: fit-content;
+    max-height: none;
+    top: 0;
+  }
+
+  .menu__list a:hover {
+    background: transparent;
+    color: var(--menu-hover);
+  }
+
+  .lines-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: end;
+  }
+
+  .menu__list {
+    width: 100vw;
+    background: black;
+  }
+
+  .menu__list:hover {
+    background: black;
+  }
+
+  .menu__item {
+    padding: 10px;
+  }
+
+  .menu__item:hover {
+    transform: none;
+  }
+
+  .menu__item a {
+    display: block;
+  }
+}

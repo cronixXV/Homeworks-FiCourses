@@ -26,7 +26,7 @@
 
 h1 {
   position: absolute;
-  top: 75px;
+  top: 83px;
 }
 
 .name__color {
@@ -42,7 +42,7 @@ h1 {
   display: flex;
   position: absolute;
   background-color: #fea501;
-  top: 155px;
+  top: 156px;
   gap: 5px;
 }
 
@@ -154,4 +154,56 @@ table.table__info tr:hover td {
 
 .pageup img {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: center;
+  }
+
+  .menu__list {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .detail h3 {
+    display: inline-block;
+  }
+
+  .detail h1 {
+    top: 87px;
+  }
+
+  .me__color {
+    display: inline-block;
+    position: absolute;
+    left: 250px;
+    top: 113px;
+  }
+
+  .button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .stack__menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .stack {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .photo__watch {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
 }
