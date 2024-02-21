@@ -7,13 +7,13 @@
   display: flex;
 }
 
-.menu__list {
+.menu-list {
   display: flex;
   list-style: none;
   gap: 10px;
 }
 
-.menu__item:hover {
+.menu-item:hover {
   transition: 1.5s;
   transform: scale(1.2, 1.4);
   transform: rotate(30deg);
@@ -203,7 +203,7 @@ table.table__info tr:hover td {
     justify-content: center;
   }
 
-  .menu__list {
+  .menu-list {
     display: inline-block;
     text-decoration: none;
     padding: 0;
