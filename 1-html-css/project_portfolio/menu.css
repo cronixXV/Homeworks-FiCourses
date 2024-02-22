@@ -132,7 +132,7 @@ body {
     transform: none;
   }
 
-  .menu__item a {
+  .menu__item li {
     display: block;
   }
 }
