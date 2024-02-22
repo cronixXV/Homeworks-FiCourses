@@ -7,13 +7,13 @@
   display: flex;
 }
 
-.menu-list {
+.menu__list {
   display: flex;
   list-style: none;
   gap: 10px;
 }
 
-.menu-item:hover {
+.menu__item:hover {
   transition: 1.5s;
   transform: scale(1.2, 1.4);
   transform: rotate(30deg);
@@ -81,12 +81,12 @@ h1 {
   min-height: 65px;
 }
 
-.skills__item h3 {
+.skills__subtitle {
   margin-top: 20px;
   margin-bottom: 0;
 }
 
-.skills__item p {
+.skills__description {
   margin-top: 15px;
   margin-bottom: 0;
   font-size: 12px;
@@ -101,11 +101,11 @@ h1 {
   top: 20px;
 }
 
-.sites {
+.projects__description {
   margin: 0 auto;
 }
 
-.photo__site {
+.projects__image--site {
   width: 700px;
   height: 400px;
   object-fit: cover;
@@ -113,27 +113,27 @@ h1 {
   transition-timing-function: ease-in-out;
 }
 
-.photo__site:hover {
+.projects__image--site:hover {
   border: 3px solid #fea501;
   cursor: pointer;
   border-radius: 15px;
 }
 
-.project__item {
+.projects__item {
   padding: 10px;
   margin: 0 auto;
   border: 2px solid black;
   margin-top: 5px;
 }
 
-.project__item_watch {
+.projects__item--watch {
   padding: 10px;
   margin: 0 auto;
   margin-top: 5px;
   border: 2px solid black;
 }
 
-.photo__watch {
+.projects__image--watch {
   width: 700px;
   height: 400px;
   float: right;
@@ -142,7 +142,7 @@ h1 {
   transition-timing-function: ease-in-out;
 }
 
-.photo__watch:hover {
+.projects__image--watch:hover {
   border: 3px solid #fea501;
   cursor: pointer;
   border-radius: 15px;
