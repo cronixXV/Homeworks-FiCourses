@@ -118,6 +118,7 @@ body {
   .menu__list {
     width: 100vw;
     background: black;
+    flex-direction: column;
   }
 
   .menu__list:hover {
