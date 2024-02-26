@@ -118,6 +118,7 @@ body {
   .menu__list {
     width: 100vw;
     background: black;
+    flex-direction: column;
   }
 
   .menu__list:hover {
@@ -132,7 +133,7 @@ body {
     transform: none;
   }
 
-  .menu__item a {
+  .menu__item li {
     display: block;
   }
 }

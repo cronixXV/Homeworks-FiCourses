@@ -24,6 +24,7 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="glyphter-font/css/Glyphter.css" />
     <link rel="stylesheet" href="global.css" />
@@ -83,61 +84,63 @@
     </div>
 
     <section class="skills">
-      <div class="container__skils">
-        <h2 class="title__section-title">Навыки</h2>
+      <div class="skills__container">
+        <h2 class="skills__title">Навыки</h2>
         <div class="skills__items">
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/html5.svg" alt="html5" />
+              <img src="icons/html5.svg" alt="html5" class="skills__icon" />
             </div>
-            <h3 class="title">HTML5</h3>
-            <p>
+            <h3 class="skills__subtitle">HTML5</h3>
+            <p class="skills__description">
               Именно он создает каркас вашего сайта или приложения, а пятая версия позволит мне создавать более SEO-оптимизированную структуру вашего
               продукта
             </p>
           </div>
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/css3.svg" alt="css3" />
+              <img src="icons/css3.svg" alt="css3" class="skills__icon" />
             </div>
-            <h3 class="title">CSS3</h3>
-            <p>
+            <h3 class="skills__subtitle">CSS3</h3>
+            <p class="skills__description">
               Этот язык стилей позволяет мне создавать абсолютно любой внешний вид вашего сайта или приложения. Все ограничивается только вашей
               фантазией!
             </p>
           </div>
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/js.svg" alt="java script" />
+              <img src="icons/js.svg" alt="java script" class="skills__icon" />
             </div>
-            <h3 class="title">JavaScript</h3>
-            <p>
+            <h3 class="skills__subtitle">JavaScript</h3>
+            <p class="skills__description">
               Этот язык программирования позволяет оживить все что угодно: слайдеры, окна, подсказки, вкладки, получение данных от сервера и многое
               другое
             </p>
           </div>
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/react.svg" alt="React" />
+              <img src="icons/react.svg" alt="React" class="skills__icon" />
             </div>
-            <h3 class="title">React</h3>
-            <p>Эта библиотека позволяет создавать web-приложения. Мы можем создать максимально интерактивный продукт именно под ваши цели</p>
+            <h3 class="skills__subtitle">React</h3>
+            <p class="skills__description">
+              Эта библиотека позволяет создавать web-приложения. Мы можем создать максимально интерактивный продукт именно под ваши цели
+            </p>
           </div>
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/node.js.svg" alt="Node.js" />
+              <img src="icons/node.js.svg" alt="Node.js" class="skills__icon" />
             </div>
-            <h3 class="title title_fz14">Node.js</h3>
-            <p>
+            <h3 class="skills__subtitle skills__subtitle_fz14">Node.js</h3>
+            <p class="skills__description">
               Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не видит
             </p>
           </div>
           <div class="skills__item">
             <div class="skills__item-img">
-              <img src="icons/mongo.db.svg" alt="Mongo.db" />
+              <img src="icons/mongo.db.svg" alt="Mongo.db" class="skills__icon" />
             </div>
-            <h3 class="title">Mongo.db</h3>
-            <p>Это нереляционная база данных, которая будет хранить данные вашего сайта или приложения</p>
+            <h3 class="skills__subtitle">Mongo.db</h3>
+            <p class="skills__description">Это нереляционная база данных, которая будет хранить данные вашего сайта или приложения</p>
           </div>
         </div>
       </div>
@@ -145,19 +148,19 @@
 
     <h2>Мои работы</h2>
     <div class="projects">
-      <div class="project__item">
-        <h3>Landing page for uber</h3>
-        <img class="photo__site" src="img/uber2.jpg" alt="uber" />
-        <p class="sites">
+      <div class="projects__item">
+        <h3 class="projects__title">Landing page for uber</h3>
+        <img class="projects__image projects__image_site" src="img/uber2.jpg" alt="uber" />
+        <p class="projects__description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores facere commodi ad ex, error, molestias accusamus omnis, quis impedit
           delectus cumque! Assumenda temporibus itaque ipsam accusantium iusto est, architecto asperiores.
         </p>
       </div>
 
-      <div class="project__item project__item_watch">
-        <h3>Shop of watches</h3>
-        <img class="photo__watch" src="img/watch.jpeg" alt="watch" />
-        <p class="sites">
+      <div class="projects__item projects__item_watch">
+        <h3 class="projects__title">Shop of watches</h3>
+        <img class="projects__image projects__image_watch" src="img/watch.jpeg" alt="watch" />
+        <p class="projects__description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate earum
           deserunt nihil et quod quam minima in pariatur autem! Eveniet, provident.
         </p>
@@ -170,7 +173,7 @@
 
     <hr />
 
-    <div class="footer animation__colors">&copy; 2024. Все права защищены.</div>
+    <div class="footer footer_animation-colors">&copy; 2024. Все права защищены.</div>
 
     <div class="pageup">
       <a href="#header">
@@ -178,23 +181,25 @@
       </a>
     </div>
 
-    <table class="table__info">
-      <tbody>
-        <tr>
-          <td colspan="2">Технические характеристики обородования</td>
-        </tr>
-        <tr>
-          <td>Ноутбук</td>
-          <td>Macbook pro 13</td>
-        </tr>
-        <tr>
-          <td>Монитор</td>
-          <td rowspan="2">BenQ PD3420Q</td>
-        </tr>
-        <tr>
-          <td>Доп.Монитор</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table">
+      <table class="table__info">
+        <tbody>
+          <tr>
+            <td colspan="2">Технические характеристики обородования</td>
+          </tr>
+          <tr>
+            <td>Ноутбук</td>
+            <td>Macbook pro 13</td>
+          </tr>
+          <tr>
+            <td>Монитор</td>
+            <td rowspan="2">BenQ PD3420Q</td>
+          </tr>
+          <tr>
+            <td>Доп.Монитор</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
