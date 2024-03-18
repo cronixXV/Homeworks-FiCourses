@@ -33,147 +33,156 @@
     <link rel="stylesheet" href="animations.css" />
   </head>
   <body>
-    <div class="header" id="header">
-      <input type="checkbox" class="menu-checkbox" id="menu-checkbox" />
-      <label class="lines-container" for="menu-checkbox"><span class="lines-item"></span></label>
-      <div class="menu">
-        <ul class="menu__list">
-          <li class="menu__item"><a href="#">Обо мне</a></li>
-          <li class="menu__item"><a href="#">Навыки</a></li>
-          <li class="menu__item"><a href="#">Мои работы</a></li>
-          <li class="menu__item"><a href="forms.html">Контакты</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="detail">
-        <h3>Меня зовут</h3>
-        <h1>
-          <span class="name__color">Егор</span> Груздев
-          <span class="bi bi-person-arms-up"></span>
-        </h1>
-        <p>
-          <span class="me__color">Я web-разработчик из города Владимир</span>
-          <button class="button">Свяжись со мной</button>
-        </p>
-      </div>
+    <header>
+      <nav class="header" id="header">
+        <input type="checkbox" class="menu-checkbox" id="menu-checkbox" />
+        <label class="lines-container" for="menu-checkbox"><span class="lines-item"></span></label>
+        <div class="menu">
+          <ul class="menu__list">
+            <li class="menu__item"><a href="#">Обо мне</a></li>
+            <li class="menu__item"><a href="#">Навыки</a></li>
+            <li class="menu__item"><a href="#">Мои работы</a></li>
+            <li class="menu__item"><a href="forms.html">Контакты</a></li>
+          </ul>
+        </div>
+      </nav>
       <div class="icon__contacts">
         <span class="bi bi-phone"></span>
         <span class="icon-email"></span>
         <span class="icon-telegram"></span>
       </div>
+    </header>
 
-      <div class="descr">
-        <p class="description__me">
-          <span class="bold__descr"
-            >Привет! Я фронтенд-разработчик с фокусом на создании привлекательных и функциональных пользовательских интерфейсов.</span
-          >
-          Моей основной целью является создание веб-сайтов и веб-приложений, которые не только красиво выглядят, но и обладают высокой
-          производительностью и удобством использования для конечных пользователей.
-        </p>
+    <main>
+      <div class="container">
+        <div class="detail">
+          <h3>Меня зовут</h3>
+          <h1>
+            <span class="name__color">Егор</span> Груздев
+            <span class="bi bi-person-arms-up"></span>
+          </h1>
+          <p>
+            <span class="me__color">Я web-разработчик из города Владимир</span>
+            <button class="button">Свяжись со мной</button>
+          </p>
+        </div>
 
-        <p>
-          <span class="italic__descr">Я специализируюсь на использовании современных технологий веб-разработки.</span>
-          Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения корректного отображения на различных устройствах, начиная от
-          десктопов и планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и развитию, чтобы быть в курсе последних тенденций
-          веб-разработки и предлагать своим клиентам самые передовые и инновационные решения. Посмотрите мои проекты ниже, чтобы увидеть мои навыки и
-          опыт в деле!
-        </p>
-      </div>
-    </div>
+        <div class="descr">
+          <p class="description__me">
+            <span class="bold__descr"
+              >Привет! Я фронтенд-разработчик с фокусом на создании привлекательных и функциональных пользовательских интерфейсов.</span
+            >
+            Моей основной целью является создание веб-сайтов и веб-приложений, которые не только красиво выглядят, но и обладают высокой
+            производительностью и удобством использования для конечных пользователей.
+          </p>
 
-    <section class="skills">
-      <div class="skills__container">
-        <h2 class="skills__title">Навыки</h2>
-        <div class="skills__items">
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/html5.svg" alt="html5" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle">HTML5</h3>
-            <p class="skills__description">
-              Именно он создает каркас вашего сайта или приложения, а пятая версия позволит мне создавать более SEO-оптимизированную структуру вашего
-              продукта
-            </p>
-          </div>
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/css3.svg" alt="css3" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle">CSS3</h3>
-            <p class="skills__description">
-              Этот язык стилей позволяет мне создавать абсолютно любой внешний вид вашего сайта или приложения. Все ограничивается только вашей
-              фантазией!
-            </p>
-          </div>
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/js.svg" alt="java script" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle">JavaScript</h3>
-            <p class="skills__description">
-              Этот язык программирования позволяет оживить все что угодно: слайдеры, окна, подсказки, вкладки, получение данных от сервера и многое
-              другое
-            </p>
-          </div>
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/react.svg" alt="React" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle">React</h3>
-            <p class="skills__description">
-              Эта библиотека позволяет создавать web-приложения. Мы можем создать максимально интерактивный продукт именно под ваши цели
-            </p>
-          </div>
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/node.js.svg" alt="Node.js" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle skills__subtitle_fz14">Node.js</h3>
-            <p class="skills__description">
-              Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не видит
-            </p>
-          </div>
-          <div class="skills__item">
-            <div class="skills__item-img">
-              <img src="icons/mongo.db.svg" alt="Mongo.db" class="skills__icon" />
-            </div>
-            <h3 class="skills__subtitle">Mongo.db</h3>
-            <p class="skills__description">Это нереляционная база данных, которая будет хранить данные вашего сайта или приложения</p>
-          </div>
+          <p>
+            <span class="italic__descr">Я специализируюсь на использовании современных технологий веб-разработки.</span>
+            Моя работа также включает в себя адаптивную и jn вёрстку для обеспечения корректного отображения на различных устройствах, начиная от
+            десктопов и планшетов до мобильных телефонов. Я стремлюсь к постоянному обучению и развитию, чтобы быть в курсе последних тенденций
+            веб-разработки и предлагать своим клиентам самые передовые и инновационные решения. Посмотрите мои проекты ниже, чтобы увидеть мои навыки
+            и опыт в деле!
+          </p>
         </div>
       </div>
-    </section>
 
-    <h2>Мои работы</h2>
-    <div class="projects">
-      <div class="projects__item">
-        <h3 class="projects__title">Landing page for uber</h3>
-        <img class="projects__image projects__image_site" src="img/uber2.jpg" alt="uber" />
-        <p class="projects__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores facere commodi ad ex, error, molestias accusamus omnis, quis impedit
-          delectus cumque! Assumenda temporibus itaque ipsam accusantium iusto est, architecto asperiores.
-        </p>
-      </div>
+      <section class="skills">
+        <div class="skills__container">
+          <h2 class="skills__title">Навыки</h2>
+          <div class="skills__items">
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/html5.svg" alt="html5" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle">HTML5</h3>
+              <p class="skills__description">
+                Именно он создает каркас вашего сайта или приложения, а пятая версия позволит мне создавать более SEO-оптимизированную структуру
+                вашего продукта
+              </p>
+            </div>
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/css3.svg" alt="css3" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle">CSS3</h3>
+              <p class="skills__description">
+                Этот язык стилей позволяет мне создавать абсолютно любой внешний вид вашего сайта или приложения. Все ограничивается только вашей
+                фантазией!
+              </p>
+            </div>
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/js.svg" alt="java script" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle">JavaScript</h3>
+              <p class="skills__description">
+                Этот язык программирования позволяет оживить все что угодно: слайдеры, окна, подсказки, вкладки, получение данных от сервера и многое
+                другое
+              </p>
+            </div>
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/react.svg" alt="React" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle">React</h3>
+              <p class="skills__description">
+                Эта библиотека позволяет создавать web-приложения. Мы можем создать максимально интерактивный продукт именно под ваши цели
+              </p>
+            </div>
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/node.js.svg" alt="Node.js" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle skills__subtitle_fz14">Node.js</h3>
+              <p class="skills__description">
+                Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не
+                видит
+              </p>
+            </div>
+            <div class="skills__item">
+              <div class="skills__item-img">
+                <img src="icons/mongo.db.svg" alt="Mongo.db" class="skills__icon" />
+              </div>
+              <h3 class="skills__subtitle">Mongo.db</h3>
+              <p class="skills__description">Это нереляционная база данных, которая будет хранить данные вашего сайта или приложения</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="projects__item projects__item_watch">
-        <h3 class="projects__title">Shop of watches</h3>
-        <img class="projects__image projects__image_watch" src="img/watch.jpeg" alt="watch" />
-        <p class="projects__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate earum
-          deserunt nihil et quod quam minima in pariatur autem! Eveniet, provident.
-        </p>
-      </div>
-    </div>
+      <section class="Portfolio">
+        <h2>Мои работы</h2>
+        <div class="projects">
+          <div class="projects__item">
+            <h3 class="projects__title">Landing page for uber</h3>
+            <img class="projects__image projects__image_site" src="img/uber2.jpg" alt="uber" />
+            <p class="projects__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores facere commodi ad ex, error, molestias accusamus omnis, quis impedit
+              delectus cumque! Assumenda temporibus itaque ipsam accusantium iusto est, architecto asperiores.
+            </p>
+          </div>
 
-    <div class="reviews">
-      <a href="#">Отзывы</a>
-    </div>
+          <div class="projects__item projects__item_watch">
+            <h3 class="projects__title">Shop of watches</h3>
+            <img class="projects__image projects__image_watch" src="img/watch.jpeg" alt="watch" />
+            <p class="projects__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, doloribus amet! Voluptas quis soluta quae excepturi, eius voluptate
+              earum deserunt nihil et quod quam minima in pariatur autem! Eveniet, provident.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="review">
+        <div class="reviews">
+          <a href="#">Отзывы</a>
+        </div>
+      </section>
+    </main>
 
     <hr />
 
-    <div class="footer footer_animation-colors">&copy; 2024. Все права защищены.</div>
+    <footer class="footer footer_animation-colors">&copy; 2024. Все права защищены.</footer>
 
     <div class="pageup">
       <a href="#header">
@@ -181,25 +190,28 @@
       </a>
     </div>
 
-    <div class="table">
-      <table class="table__info">
-        <tbody>
-          <tr>
-            <td colspan="2">Технические характеристики обородования</td>
-          </tr>
-          <tr>
-            <td>Ноутбук</td>
-            <td>Macbook pro 13</td>
-          </tr>
-          <tr>
-            <td>Монитор</td>
-            <td rowspan="2">BenQ PD3420Q</td>
-          </tr>
-          <tr>
-            <td>Доп.Монитор</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <details>
+      <summary>Технические характеристики обородования</summary>
+      <div class="table">
+        <table class="table__info">
+          <tbody>
+            <tr>
+              <td colspan="2">Технические характеристики обородования</td>
+            </tr>
+            <tr>
+              <td>Ноутбук</td>
+              <td>Macbook pro 13</td>
+            </tr>
+            <tr>
+              <td>Монитор</td>
+              <td rowspan="2">BenQ PD3420Q</td>
+            </tr>
+            <tr>
+              <td>Доп.Монитор</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
   </body>
 </html>
