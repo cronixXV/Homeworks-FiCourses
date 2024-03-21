@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 2</title>
+    <script>
+      // 1. Создайте цикл, который:
+      // 1.1. Просит пользователя ввести значения (числа), используя prompt и сохраняет их в массив.
+      // 1.2. Выходит из цикла (заканчивает запрашивать значения), когда пользователь введёт
+      // нечисловое значение, пустую строку или нажмёт кнопку «Отмена». Для ввода используйте prompt().
+      // 1.3. Подсчитывает и возвращает сумму элементов массива.
+      // Число 0 (ноль) – считается числом, не останавливайте ввод значений при вводе ноля пользователем.
+
+      // Решение:
+
+      const inputNumbersByUsers = [];
+      do {
+        let userNum = prompt("Введите любое число");
+        if (isNaN(userNum) || userNum === "" || userNum === null) {
+          break;
+        }
+        inputNumbersByUsers.push(userNum);
+      } while (true);
+      console.log(inputNumbersByUsers);
+
+      // 2. Дан массив чисел
+      let numbers = [0, -23, 5, 90, 104, 80, -55];
+      // С помощью цикла и условий найдите и выведите в консоль наибольшее и наименьшее число массива.
+      // *Найдите отдельно сумму отрицательных и положительных элементов массива.
+      // *Найдите среднее арифметическое элементов массива (сумма элементов, делить на количество).
+
+      // Решение:
+
+      const minMax = (arr) => {
+        let [min, max] = [arr[0], arr[0]];
+        for (let num of arr) {
+          min = num < min ? num : min;
+          max = num > max ? num : max;
+        }
+        return [min, max];
+      };
+
+      //Вариант 2:
+
+      let smallest = numbers[0];
+      let largest = numbers[0];
+      let sumPositive = 0;
+      let sumNegative = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < smallest) {
+          smallest = numbers[i];
+        }
+
+        if (numbers[i] > largest) {
+          largest = numbers[i];
+        }
+
+        if (numbers[i] > 0) {
+          sumPositive += numbers[i];
+        } else if (numbers[i] < 0) {
+          sumNegative += numbers[i];
+        }
+      }
+
+      let arithmeticMean = (sumPositive + sumNegative) / numbers.length; //Среднее арифметическое
+
+      console.log("Минимальное значение:", smallest);
+      console.log("Максимальное значение:", largest);
+      console.log("Сумма положительных элементов:", sumPositive);
+      console.log("Сумма отрицательных элементов:", sumNegative);
+      console.log("Среднее арифметическое:", arithmeticMean);
+
+      // 3. Дан массив
+      let languages = ["javascript", "php", "php", "typescript", "javascript", "html", "html", "java", "javascript"];
+      // 1. Удалите повторяющиеся элементы массива.
+      // *2. Выведите в консоль, сколько раз повторялся каждый элемент массива (включая удаленные элементы массива).
+
+      // Решение:
+
+      const arrayValue = (arr) => {
+        const uniq = [];
+        const repeatItem = {};
+
+        for (let item of arr) {
+          if (uniq.includes(item)) {
+            repeatItem[item] = repeatItem[item] ? repeatItem[item] + 1 : 1;
+            continue;
+          }
+          uniq.push(item);
+          repeatItem[item] = 1;
+        }
+        return { uniq, repeatItem };
+      };
+      console.log(arrayValue(languages));
+
+      // упрощенный вариант
+
+      // const arrayValue = (arr) => {
+      //   const repeatItem = {};
+      //   arr.forEach((item) => {
+      //     repeatItem[item] = (repeatItem[item] || 0) + 1;
+      //   });
+      //   const uniq = Object.keys(repeatItem);
+      //   return { uniq, repeatItem };
+      // };
+    </script>
+  </head>
+  <body></body>
+</html>
