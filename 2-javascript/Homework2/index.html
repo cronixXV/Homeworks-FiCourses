@@ -19,7 +19,7 @@
       const inputNumbersByUsers = [];
       do {
         let userNum = prompt("Введите любое число");
-        if (isNaN(userNum) || userNum === " " || userNum === null) {
+        if (isNaN(userNum) || userNum === "" || userNum === null) {
           break;
         }
         inputNumbersByUsers.push(userNum);
@@ -34,16 +34,45 @@
 
       // Решение:
 
-      const minMaxNum = (arr) => {
+      const minMax = (arr) => {
         let [min, max] = [arr[0], arr[0]];
         for (let num of arr) {
-          if (((min = num), num < min)) {
-          } else min;
-          if (((max = num), num > max)) {
-          } else max;
+          min = num < min ? num : min;
+          max = num > max ? num : max;
         }
         return [min, max];
       };
+
+      //Вариант 2:
+
+      let smallest = numbers[0];
+      let largest = numbers[0];
+      let sumPositive = 0;
+      let sumNegative = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < smallest) {
+          smallest = numbers[i];
+        }
+
+        if (numbers[i] > largest) {
+          largest = numbers[i];
+        }
+
+        if (numbers[i] > 0) {
+          sumPositive += numbers[i];
+        } else if (numbers[i] < 0) {
+          sumNegative += numbers[i];
+        }
+      }
+
+      let arithmeticMean = (sumPositive + sumNegative) / numbers.length; //Среднее арифметическое
+
+      console.log("Минимальное значение:", smallest);
+      console.log("Максимальное значение:", largest);
+      console.log("Сумма положительных элементов:", sumPositive);
+      console.log("Сумма отрицательных элементов:", sumNegative);
+      console.log("Среднее арифметическое:", arithmeticMean);
 
       // 3. Дан массив
       let languages = ["javascript", "php", "php", "typescript", "javascript", "html", "html", "java", "javascript"];
@@ -67,6 +96,17 @@
         return { uniq, repeatItem };
       };
       console.log(arrayValue(languages));
+
+      // упрощенный вариант
+
+      // const arrayValue = (arr) => {
+      //   const repeatItem = {};
+      //   arr.forEach((item) => {
+      //     repeatItem[item] = (repeatItem[item] || 0) + 1;
+      //   });
+      //   const uniq = Object.keys(repeatItem);
+      //   return { uniq, repeatItem };
+      // };
     </script>
   </head>
   <body></body>
