@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,15 +12,21 @@ DOCTYPE html>
       // Если в функцию будет передано не число, просто проигнорируйте данный аргумент.
       // Решение:
 
-      function min(a, b) {
-        if (a < b) {
-          return a;
-        } else {
-          return b;
+      function min() {
+        let minValue = Infinity;
+
+        for (let i = 0; i < arguments.length; i++) {
+          const arg = arguments[i];
+
+          if (typeof arg !== "number") continue;
+
+          if (arg < minValue) minValue = arg;
         }
+
+        return minValue === Infinity ? undefined : minValue;
       }
 
-      console.log(min(10, 5));
+      console.log(min(2, -10));
 
       // 2. Расчет суммы чисел с помощью замыканий
       // Напишите функцию summa, которая вызывается с помощью двойных круглых скобок: summa(a)(b) = a + b.
@@ -31,21 +37,11 @@ DOCTYPE html>
       // Решение:
 
       function summa(a) {
-        let currentSum = a;
-
-        function anotherSum(b) {
-          currentSum += b;
-          return anotherSum;
-        }
-
-        anotherSum.toString = function () {
-          return currentSum;
+        return function (b) {
+          return a + b;
         };
-
-        return anotherSum;
       }
-
-      console.log(summa(10)(5));
+      console.log(summa(3)(4));
 
       // 3. Получить строковый идентификатор (строку заданной длины) из случайных символов.
       // 3.1. Создайте функцию createId(), которая генерирует строковый
