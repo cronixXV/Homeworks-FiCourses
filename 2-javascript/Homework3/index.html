@@ -89,6 +89,89 @@
         // Метод join() объединяет все элементы массива (или массивоподобного объекта) в строку.
       }
       console.log(createId(10, "fpg987"));
+
+      //3.2
+      function create1000Id() {
+        const uniqueItems = [];
+
+        // Не решает задачу
+        // for (let i = 0; i < 1000; i++) {
+        //   const item = createId(10, 'abc')
+        //   if (!uniqueItems.includes(item)) {
+        //     uniqueItems.push(item)
+        //   }
+        // }
+
+        // Верный способ
+        while (uniqueItems.length < 1000) {
+          const item = createId(10, "abc");
+          if (!uniqueItems.includes(item)) {
+            uniqueItems.push(item);
+          } else {
+            console.log(`Не уникальный id: ${item}`);
+          }
+        }
+
+        return uniqueItems;
+      }
+
+      console.log(create1000Id());
+
+      // Unique methods
+      // console.log(['1', '2'].indexOf('22') >= 0)
+      // console.log(['1', '2'].includes('2'))
+
+      function create1000Id2() {
+        const uniqueItems = new Set();
+
+        while (uniqueItems.size < 1000) {
+          const item = createId(10, "abc");
+          uniqueItems.add(item);
+        }
+
+        return Array.from(uniqueItems);
+      }
+
+      console.log(create1000Id2());
+
+      // 3.3
+      function createIdWrapper(length, dictionary, onSuccess, onNonUnique) {
+        const uniqueItems = [];
+
+        function createUniqueItem() {
+          const item = createId(length, dictionary);
+          if (!uniqueItems.includes(item)) {
+            uniqueItems.push(item);
+            if (typeof onSuccess === "function") {
+              onSuccess(item);
+            }
+          } else {
+            if (typeof onNonUnique === "function") {
+              onNonUnique(item);
+            }
+            createUniqueItem(); // Рекурсия
+          }
+        }
+
+        // while (uniqueItems.length < 1000) {
+        //   createUniqueItem()
+        // }
+
+        for (let i = 0; i < 1000; i++) {
+          createUniqueItem();
+        }
+
+        return uniqueItems;
+      }
+
+      console.log(
+        createIdWrapper(
+          10,
+          "abc",
+          (id) => {},
+          (id) => console.log(`NonUnique: ${id}`)
+        )
+      );
     </script>
   </head>
   <body></body>
