@@ -4,46 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Домашнее задание - занятие 4</title>
-    <script>
-      // 1)
-      // Решите задачу с помощью методов для работы с массивами:
-      // Дан массив чисел
-      let numbers = [0, -23, 5, 90, 104, 80, -55];
-      // С помощью sort() найдите и выведите в консоль наибольшее и наименьшее число массива.
-      // *Найдите отдельно сумму отрицательных и положительных элементов массива с помощью reduce().
-
-      ///Решение:
-
-      numbers.sort((a, b) => a - b);
-      console.log(`Наименьшее число: ${numbers[0]}`);
-      console.log(`Наибольшее число: ${numbers[numbers.length - 1]}`);
-
-      const sumOfDifferentNumbers = (accumulator, currentValue) => {
-        if (currentValue >= 0) {
-          accumulator.positive += currentValue;
-        } else {
-          accumulator.negative += currentValue;
-        }
-        return accumulator;
-      };
-
-      const sums = numbers.reduce(sumOfDifferentNumbers, { positive: 0, negative: 0 });
-
-      console.log(`Сумма положительных элементов: ${sums.positive}`);
-      console.log(`Сумма отрицательных элементов: ${sums.negative}`);
-
-      // 2)
-
-      // Удалите повторяющиеся элементы массива с помощью Set:
-
-      let languages = ["javascript", "php", "php", "typescript", "javascript", "html", "html", "java", "javascript"];
-
-      ///Решение:
-
-      const notRepetitiveLanguages = [...new Set(languages)];
-
-      console.log(notRepetitiveLanguages);
-    </script>
+    <script></script>
   </head>
   <body></body>
 </html>
