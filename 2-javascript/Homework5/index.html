@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 4</title>
+  </head>
+  <body>
+    <h1>Для задания 1</h1>
+    <div class="task1">
+      <a
+        id="link1"
+        data-type="text/html"
+        hreflang="RU-ru"
+        rel="nofollow"
+        class="link link-active"
+        target="_blank"
+        title="Откроется в новой вкладке"
+        href="/homework4-1.html"
+      >
+        Homework 4.1</a
+      >
+    </div>
+    <div class="task1" id="task1-link"></div>
+    <script>
+      // 1. Напишите функцию JavaScript, чтобы получить значения атрибутов class, href, hreflang,
+      // rel, target, title и data-type указанной ссылки. Полученный результат выведите в консоль.
+      // 2. Напишите функцию удаления ссылки #link1 из DOM.
+      // *3. Создайте точно такую же ссылку с помощью JavaScript и вставьте в #task1-link.
+      // Решение:
+
+      //1)
+
+      function getLinkAttributes() {
+        const link = document.querySelector("#link1");
+
+        console.log("Class:", link.getAttribute("class"));
+        console.log("Href:", link.getAttribute("href"));
+        console.log("Hreflang:", link.getAttribute("hreflang"));
+        console.log("Rel:", link.getAttribute("rel"));
+        console.log("Target:", link.getAttribute("target"));
+        console.log("Title:", link.getAttribute("title"));
+        console.log("Data-type:", link.getAttribute("data-type"));
+      }
+      getLinkAttributes();
+
+      //2)
+
+      function removeLinkFromDom() {
+        const link = document.querySelector("#link1");
+        link.parentNode.removeChild(link);
+        console.log(link);
+      }
+
+      removeLinkFromDom();
+
+      //3)
+      function createAndInsertNewLink() {
+        const newSameLink = document.createElement("a");
+        newSameLink.href = "https://www.youtube.com/";
+        newSameLink.hreflang = "ru";
+        newSameLink.rel = "nofollow";
+        newSameLink.target = "_blank";
+        newSameLink.title = "Откроется в новой вкладке";
+        newSameLink.dataset.type = "text/html";
+        newSameLink.id = "link2";
+
+        const addNewSameLink = document.querySelector("#task1-link");
+        addNewSameLink.appendChild(newSameLink);
+      }
+
+      createAndInsertNewLink();
+      console.log(link2);
+    </script>
+
+    <h1>Для задания 2</h1>
+    <div class="task2">
+      <div>Языки программирования:</div>
+      <ul>
+        <li>JavaScript</li>
+        <li>Go</li>
+        <li>TypeScript</li>
+        <li><a href="#">PHP</a></li>
+      </ul>
+      <ol>
+        <li>Green</li>
+        <li>Yellow</li>
+        <li>Red</li>
+      </ol>
+    </div>
+    <script>
+      // 2. Напишите код, с помощью которого можно получить:
+      // 2.1. элемент <div>
+      // 2.2. <ul>
+      // 2.3. третий <li> первого списка (TypeScript)
+      // 2.4. <a> (PHP)
+      // *2.5. второй <li> второго списка (Yellow) через третий <li> первого списка (TypeScript)
+
+      // Решение:
+
+      function getElements() {
+        //1)
+        let secondDiv = document.getElementsByTagName("div")[2];
+        console.log(secondDiv);
+
+        //2)
+        let gettinUl = document.getElementsByTagName("ul")[0];
+        console.log(gettinUl);
+
+        //3)
+        let gettingThirdLi = document.getElementsByTagName("li")[2];
+        console.log(gettingThirdLi);
+
+        //5)
+        let Yellow = gettingThirdLi.closest("ul").closest("div").getElementsByTagName("ol")[0].getElementsByTagName("li")[1];
+        console.log({ Yellow });
+
+        //4)
+        let gettingA = document.getElementsByTagName("a")[0];
+        console.log(gettingA);
+
+        // let gettingAnotherLi = document.getElementsByTagName("ol")[0];
+        // console.log(gettingAnotherLi);
+        // let gettingSecondLi = gettingAnotherLi.getElementsByTagName("li")[1];
+        // console.log(gettingSecondLi);
+      }
+
+      getElements();
+    </script>
+
+    <h1>Для задания 3</h1>
+    <div class="task3" id="calendar"></div>
+    <style>
+      .task3 table {
+        border-collapse: collapse;
+      }
+
+      .task3 td,
+      .task3 th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+      }
+
+      .task3 th {
+        background-color: orange;
+        font-weight: bold;
+      }
+
+      task3 td.red {
+        background-color: red;
+      }
+    </style>
+    <script>
+      // Создайте календарь в виде таблицы с помощью JavaScript
+      // Напишите функцию newCalendar(elementLink, year, month).
+
+      // Вызов функции newCalendar() создаст календарь для заданного месяца month в году year и вставить его внутрь elementLink.
+      // Календарь должен быть в виде таблицы (тег table), где неделя – это <tr>, а день – это <td>.
+      // У таблицы должен быть заголовок с названиями дней недели, каждый день – <th>.
+      // Первый день недели в календаре - понедельник.
+      // *Если выбран текущий месяц, подсветите красным текущий день на календаре.
+      // Пример вызова функции: newCalendar(elementLink, 2022, 1) сгенерирует календарь calendar.png
+
+      // Подсказки
+      let year = 2022,
+        month = 1;
+      let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
+      let day = date.getDay(); // Получение номера дня недели
+      console.log(day);
+
+      date.setDate(date.getDate() + 1);
+      day = date.getDay(); // Получение номера дня в недели
+      console.log(day);
+
+      date.setDate(date.getDate() + 1);
+      day = date.getDay();
+      console.log(day);
+
+      // Решение:
+      function newCalendar(elementLink, year, month) {
+        const months = {
+          1: { name: "Январь", days: 31 },
+          2: { name: "Февраль", days: 28 },
+          3: { name: "Март", days: 31 },
+          4: { name: "Апрель", days: 30 },
+          5: { name: "Май", days: 31 },
+          6: { name: "Июнь", days: 30 },
+          7: { name: "Июль", days: 31 },
+          8: { name: "Август", days: 31 },
+          9: { name: "Сентябрь", days: 30 },
+          10: { name: "Октябрь", days: 31 },
+          11: { name: "Ноябрь", days: 30 },
+          12: { name: "Декабрь", days: 31 },
+        };
+
+        // Cоздаем таблицу:
+        const calendar = document.createElement("table");
+        calendar.classList.add("calendar");
+
+        // Cоздаем заголовок таблицы:
+        const calendarHeader = document.createElement("thead");
+        const headerLine = document.createElement("tr");
+        const daysInTheWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+
+        daysInTheWeek.forEach((day) => {
+          const th = document.createElement("th");
+          th.textContent = day;
+          headerLine.classList.add("th");
+        });
+
+        calendarHeader.appendChild(headerLine);
+        calendar.appendChild(calendarHeader);
+
+        //Cоздаем тело таблицы:
+        const calendarBody = document.createElement("tbody");
+        const firstDayOfMonth = new Date(year, month, 1).getDay() - 1;
+        // Создаём объект Date для месяца month в году year (номерация начинается с 0) и получаем номер дня недели.
+
+        let day = 1;
+        for (let i = 0; i < 6; i++) {
+          //проходит по 6 строкам таблицы
+          const row = document.createElement("tr");
+          for (let j = 0; j < 7; j++) {
+            // проходит по 7 столбам таблицы
+            const cell = document.createElement("td");
+            if ((i === 0 && j < firstDayOfMonth) || day > months[month]?.days || 30) {
+              // проверяется, должен ли этот элемент содержать дату или оставаться пустым.
+              cell.textContent = "";
+            } else {
+              cell.textContent = day;
+              day++;
+            }
+            row.appendChild(cell);
+          }
+          calendarBody.appendChild(row);
+          if (day > months[month]?.days || 30) break;
+          //Если текущая дата превышает количество дней в указанном месяце, цикл прерывается.
+        }
+        calendar.appendChild(calendarBody);
+
+        //Добавляем заголовок с названием месяца и года.
+        const calendarTitle = document.createElement("h2");
+        calendarTitle.textContent = `${months[month]?.name} ${year}`;
+
+        // Вставляем календарь в указанный элемент.
+        const element = document.querySelector(elementLink);
+        element.appendChild(calendarTitle);
+        element.appendChild(calendar);
+      }
+
+      newCalendar("#calendar", 2024, 3);
+    </script>
+  </body>
+</html>
