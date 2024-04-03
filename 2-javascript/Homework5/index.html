@@ -118,7 +118,7 @@
         console.log({ Yellow });
 
         //4)
-        let gettingA = document.getElementsByTagName("a")[0];
+        let gettingA = document.querySelector(".task2").getElementsByTagName("a")[0];
         console.log(gettingA);
 
         // let gettingAnotherLi = document.getElementsByTagName("ol")[0];
@@ -149,7 +149,7 @@
         font-weight: bold;
       }
 
-      task3 td.red {
+      .task3 td.red {
         background-color: red;
       }
     </style>
@@ -165,93 +165,147 @@
       // Пример вызова функции: newCalendar(elementLink, 2022, 1) сгенерирует календарь calendar.png
 
       // Подсказки
-      let year = 2022,
-        month = 1;
-      let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
-      let day = date.getDay(); // Получение номера дня недели
-      console.log(day);
+      // let year = 2022,
+      //   month = 1;
+      // let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
+      // let day = date.getDay(); // Получение номера дня недели
+      // console.log(day);
 
-      date.setDate(date.getDate() + 1);
-      day = date.getDay(); // Получение номера дня в недели
-      console.log(day);
+      // date.setDate(date.getDate() + 1);
+      // day = date.getDay(); // Получение номера дня в недели
+      // console.log(day);
 
-      date.setDate(date.getDate() + 1);
-      day = date.getDay();
-      console.log(day);
+      // date.setDate(date.getDate() + 1);
+      // day = date.getDay();
+      // console.log(day);
 
       // Решение:
-      function newCalendar(elementLink, year, month) {
-        const months = {
-          1: { name: "Январь", days: 31 },
-          2: { name: "Февраль", days: 28 },
-          3: { name: "Март", days: 31 },
-          4: { name: "Апрель", days: 30 },
-          5: { name: "Май", days: 31 },
-          6: { name: "Июнь", days: 30 },
-          7: { name: "Июль", days: 31 },
-          8: { name: "Август", days: 31 },
-          9: { name: "Сентябрь", days: 30 },
-          10: { name: "Октябрь", days: 31 },
-          11: { name: "Ноябрь", days: 30 },
-          12: { name: "Декабрь", days: 31 },
-        };
+      // function newCalendar(elementLink, year, month) {
+      //   const months = {
+      //     1: { name: "Январь", days: 31 },
+      //     2: { name: "Февраль", days: 28 },
+      //     3: { name: "Март", days: 31 },
+      //     4: { name: "Апрель", days: 30 },
+      //     5: { name: "Май", days: 31 },
+      //     6: { name: "Июнь", days: 30 },
+      //     7: { name: "Июль", days: 31 },
+      //     8: { name: "Август", days: 31 },
+      //     9: { name: "Сентябрь", days: 30 },
+      //     10: { name: "Октябрь", days: 31 },
+      //     11: { name: "Ноябрь", days: 30 },
+      //     12: { name: "Декабрь", days: 31 },
+      //   };
 
-        // Cоздаем таблицу:
-        const calendar = document.createElement("table");
-        calendar.classList.add("calendar");
+      //   // Проверка на високосный код
+      //   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+      //     months[1] = 29;
+      //   }
 
-        // Cоздаем заголовок таблицы:
-        const calendarHeader = document.createElement("thead");
-        const headerLine = document.createElement("tr");
-        const daysInTheWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+      //   // Cоздаем таблицу:
+      //   const calendar = document.createElement("table");
+      //   calendar.classList.add("calendar");
 
-        daysInTheWeek.forEach((day) => {
-          const th = document.createElement("th");
-          th.textContent = day;
-          headerLine.classList.add("th");
-        });
+      //   // Cоздаем заголовок таблицы:
+      //   const calendarHeader = document.createElement("thead");
+      //   const headerLine = document.createElement("tr");
+      //   const daysInTheWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
-        calendarHeader.appendChild(headerLine);
-        calendar.appendChild(calendarHeader);
+      //   daysInTheWeek.forEach((day) => {
+      //     const th = document.createElement("th");
+      //     th.textContent = day;
+      //     headerLine.classList.add("th");
+      //   });
 
-        //Cоздаем тело таблицы:
-        const calendarBody = document.createElement("tbody");
-        const firstDayOfMonth = new Date(year, month, 1).getDay() - 1;
-        // Создаём объект Date для месяца month в году year (номерация начинается с 0) и получаем номер дня недели.
+      //   calendarHeader.appendChild(headerLine);
+      //   calendar.appendChild(calendarHeader);
 
-        let day = 1;
-        for (let i = 0; i < 6; i++) {
-          //проходит по 6 строкам таблицы
-          const row = document.createElement("tr");
-          for (let j = 0; j < 7; j++) {
-            // проходит по 7 столбам таблицы
-            const cell = document.createElement("td");
-            if ((i === 0 && j < firstDayOfMonth) || day > months[month]?.days || 30) {
-              // проверяется, должен ли этот элемент содержать дату или оставаться пустым.
-              cell.textContent = "";
-            } else {
-              cell.textContent = day;
-              day++;
-            }
-            row.appendChild(cell);
-          }
-          calendarBody.appendChild(row);
-          if (day > months[month]?.days || 30) break;
-          //Если текущая дата превышает количество дней в указанном месяце, цикл прерывается.
-        }
-        calendar.appendChild(calendarBody);
+      //   //Cоздаем тело таблицы:
+      //   const calendarBody = document.createElement("tbody");
+      //   const firstDayOfMonth = new Date(year, month, 1).getDay() - 1;
+      //   // Создаём объект Date для месяца month в году year (номерация начинается с 0) и получаем номер дня недели.
 
-        //Добавляем заголовок с названием месяца и года.
-        const calendarTitle = document.createElement("h2");
-        calendarTitle.textContent = `${months[month]?.name} ${year}`;
+      //   let day = 1;
+      //   for (let i = 0; i < 6; i++) {
+      //     //проходит по 6 строкам таблицы
+      //     const row = document.createElement("tr");
+      //     for (let j = 0; j < 7; j++) {
+      //       // проходит по 7 столбам таблицы
+      //       const cell = document.createElement("td");
+      //       if ((i === 0 && j < firstDayOfMonth) || day > months[month]?.days || 30) {
+      //         // проверяется, должен ли этот элемент содержать дату или оставаться пустым.
+      //         cell.textContent = "";
+      //       } else {
+      //         cell.textContent = day;
+      //         day++;
+      //       }
+      //       row.appendChild(cell);
+      //     }
+      //     calendarBody.appendChild(row);
+      //     if (day > months[month]?.days || 30) break;
+      //     //Если текущая дата превышает количество дней в указанном месяце, цикл прерывается.
+      //   }
+      //   calendar.appendChild(calendarBody);
 
-        // Вставляем календарь в указанный элемент.
-        const element = document.querySelector(elementLink);
-        element.appendChild(calendarTitle);
-        element.appendChild(calendar);
+      //   //Добавляем заголовок с названием месяца и года.
+      //   const calendarTitle = document.createElement("h2");
+      //   calendarTitle.textContent = `${months[month]?.name} ${year}`;
+
+      //   // Вставляем календарь в указанный элемент.
+      //   const element = document.querySelector(elementLink);
+      //   element.appendChild(calendarTitle);
+      //   element.appendChild(calendar);
+      // }
+
+      // newCalendar("#calendar", 2024, 3);
+
+      function getDay(date) {
+        let day = date.getDay();
+        if (day === 0) day = 7;
+        return day - 1;
       }
 
-      newCalendar("#calendar", 2024, 3);
+      function newCalendar(elementLink, year, month) {
+        const dateMonth = month - 1;
+        const date = new Date(year, dateMonth);
+        const today = new Date();
+        const isCurrentMonth = today.getFullYear() === +year && today.getMonth() === +dateMonth;
+
+        let table = "<table><tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr><tr>";
+
+        // Пустые ячейки вначале
+        for (let i = 0; i < getDay(date); i++) {
+          table += "<td></td>";
+        }
+
+        // Дни недели
+        while (date.getMonth() === dateMonth) {
+          const isCurrentDay = isCurrentMonth && date.getDate() === today.getDate();
+          const activeClass = isCurrentDay ? "red" : "";
+
+          table += `<td class="${activeClass}">${date.getDate()}</td>`;
+
+          // Когда конец недели
+          if (getDay(date) % 7 === 6) {
+            table += "</tr><tr>";
+          }
+
+          date.setDate(date.getDate() + 1);
+        }
+
+        // Пустые ячейки в конце
+        if (getDay(date) !== 0) {
+          for (let i = getDay(date); i < 7; i++) {
+            table += "<td></td>";
+          }
+        }
+
+        table += "</tr><table>";
+        if (elementLink) {
+          elementLink.innerHTML = table;
+        }
+      }
+
+      newCalendar(document.querySelector("#calendar"), "2024", "4");
     </script>
   </body>
 </html>
