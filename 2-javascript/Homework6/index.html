@@ -69,14 +69,28 @@
 
       let orderOfSort = 1; // порядок сортировки
       let sortedColumn = -1; //индекс отсортированного столбца
-
       // Функция сортировки таблицы по выбранному столбцу
       function sortTable(index) {
-        sortTableByName(index);
+        if (index === undefined) {
+          index = sortedColumn;
+        } else {
+          orderOfSort = index !== sortedColumn ? 1 : -orderOfSort;
+          sortedColumn = index;
+        }
+
+        // Сортировка таблицы после добавления новой строки
+        sortTable();
 
         // Получение таблицы и ее строк
-        const table = document.getElementById("table1");
         const rows = Array.from(table.tBodies[0].rows);
+
+        // Очищаем все индикаторы сортировки
+        const sortIndicators = document.querySelectorAll(".sort-indicator");
+        sortIndicators.forEach((item) => (item.textContent = ""));
+
+        // Установим индикатор
+        const sortIndicator = table.tHead.rows[0].cells[index].querySelector(".sort-indicator");
+        sortIndicator.textContent = orderOfSort === 1 ? " ↑" : " ↓";
 
         // Сортировка строк в зависимости от выбранного столбца и текущего порядка сортировки
         rows.sort((a, b) => {
@@ -90,6 +104,9 @@
           table.tBodies[0].appendChild(row);
         }
       }
+
+      // Получение ссылки на DOM элемент
+      const table = document.getElementById("table1");
 
       // Функция для добавления новой строки в таблицу из данных формы
       function addRowFromForm() {
@@ -124,36 +141,6 @@
 
       // Добавление обработчика события для кнопки добавления новой строки
       document.getElementById("form1-btn").addEventListener("click", addRowFromForm);
-
-      // let orderOfSort = 1; // порядок сортировки
-      // let sortedColumn = -1; //индекс отсортированного столбца
-
-      // function sortTableByName(index) {
-      //   if (index !== sortedColumn) {
-      //     orderOfSort = 1;
-      //   } else {
-      //     orderOfSort = -1;
-      //   }
-      //   sortedColumn = index;
-      // }
-
-      // //Удаление иконки сортировки из всех столбцов таблицы перед установкой новой иконки
-      // const table = document.getElementById("table1");
-      // const sortIndicators = document.querySelectorAll(".sort-indicator");
-      // sortIndicators.forEach((item) => (item.innerHTML = ""));
-
-      // //Устанавливанием иконку сортировки для текущего столба в зависимости от порядка сортировки
-      // const sortIndicator = table.tHead.rows[0].cells[index].querySelector(".sort-indicator");
-      // sortIndicator.innerHTML = orderOfSort === 1 ? "↑" : "↓";
-
-      // //Сортировка строки таблицы по выбраному столбцу и текущему порядку сортировки
-      // const rows = Array.from(table.tBodies[0].rows).sort((a, b) => {
-      //   const cellA = a.cells[index].textContent.toLowerCase(); //  для преобразования текста ячеек в нижний регистр, чтобы сравнение не зависело от регистра.
-      //   const cellB = b.cells[index].textContent.toLowerCase();
-
-      //   return orderOfSort * cellA.localeCompare(cellB);
-      // });
-      // table.tBodies[0].append(...rows);
 
       // Пример:
       // let sort1 = [1, 20, -3, 4].sort((a, b) => {
