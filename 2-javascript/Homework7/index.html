@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 6</title>
+    <script src="./task1/Reader.js"></script>
+    <script src="./task1/Book.js"></script>
+    <script src="./task2/AbstractProduct.js"></script>
+    <script src="./task2/ProductTechnology.js"></script>
+    <script src="./task2/ProductFurniture.js"></script>
+    <script src="./task2/Basket.js"></script>
+    <script src="./task2/Customer.js"></script>
+    <script>
+      // Задание №1. Читатели библиотеки
+      // 1.1. Создать класс Reader, описывающий такую информацию о пользователе как: ФИО,
+      // номер читательского билета, дата рождения, e-mail. Добавить методы receiveBook() и returnBook().
+      // 1.2. Описание работы метода receiveBook().
+      // - receiveBook принимает переменное количество объектов класса Book (описание класса в п. 1.3.).
+      // Выводит на консоль сообщение "Иванов И. И. взял книги: JavaScript, Энциклопедия о животных...".
+      // - Аналогичным образом реализовать метод returnBook().
+      // Выводит на консоль сообщение "Иванов И. И. вернул книги: JavaScript, Энциклопедия о животных...".
+      // 1.3. Создать класс Book, который содержит информацию о книге: название книги, имя автора, комментарий.
+      // Важно! В методы класса Reader передавать не просто названия книг, а экземпляры класса Book.
+
+      //Решение
+      const someBooks = [
+        { title: "Три товарища", author: "Эрих Мария Ремарк", comment: "Взята на 2 недели" },
+        { title: "Алхимик", author: "Пауло Коэльо", comment: "Имеет большой спрос" },
+      ];
+
+      const books = someBooks.map(function (bookRequest) {
+        const bookValues = Object.values(bookRequest);
+        return new Book(...bookValues);
+      });
+
+      const reader = new Reader("Демидов", "Алексей", "Сергеевич", 174853, "01.05.2003", "demidov@test.ru");
+      console.log(
+        `${reader.receiveBook(books)}
+      \n${reader.returnBook(books)}`,
+        reader.books,
+        books
+      );
+
+      // Задание №2. Интернет магазин
+      // 2.1. Создать абстрактный класс Product, содержащий свойства: название товара, цена, рейтинг и комментарий.
+      // Product - это абстрактный класс, то есть его можно использовать в наследовании, но нельзя создать его экземпляр.
+      // 2.2. Создать класс ProductTechnology, который наследует класс Product.
+      // 2.3. Создать класс ProductFurniture, который наследует класс Product.
+      // 2.4. Создать класс Basket, который содержит массив из купленных товаров (ProductTechnology и ProductFurniture).
+      // 2.5. Создать класс Customer, содержащий свойтва: имя, e-mail, пароль и экземпляр класса Basket.
+      // Создать экземпляр класса Customer.
+
+      //Решение
+      const productTechnology = new ProductTechnology("MacBook Air 15", 130000, 5, "Отличный выбор", false, false);
+      const productFurniture = new ProductFurniture("Шкаф", 35500, 4, "Неплохой", false, { length: 250, width: 450, height: 300 });
+      const basket = new Basket([productTechnology, productFurniture]);
+      const customer = new Customer("Петровский Д.А", "petrovskiy@test.ru", "174853", basket);
+      console.log(productTechnology, productFurniture, basket, customer);
+      customer.exampleOfBasket.removeProduct(productTechnology);
+      console.log("Basket now: ", customer.exampleOfBasket);
+      customer.exampleOfBasket.addProduct(productTechnology);
+      console.log("And basket now: ", customer.exampleOfBasket);
+      // *Задание №3
+      // Переписать код задания 1 или 2 (на выбор) на протопипы (ES5).
+
+      //Решение 1-й задачи на прототипах ES5
+      function ReaderES5(surname, name, patronymic, readerTicketNumber, birthdayDate, mail) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.readerTicketNumber = readerTicketNumber;
+        this.birthdayDate = birthdayDate;
+        this.mail = mail;
+      }
+
+      Object.assign(ReaderES5.prototype, {
+        receiveBooks(books) {
+          let answer = `${this.surname} ${this.name || ""} ${this.patronymic || ""} ${this.readerTicketNumber || ""} взял книги: `;
+          for (const book of books) {
+            answer += '"' + book.bookTitle + '", ';
+          }
+          return answer.trim().slice(0, -1);
+        },
+        returnBooks(books) {
+          let answer = `${this.surname} ${this.name || ""} ${this.patronymic || ""} ${this.readerTicketNumber || ""} вернул книги: `;
+          for (const book of books) {
+            answer += '"' + book.bookTitle + '", ';
+          }
+          return answer.trim().slice(0, -1);
+        },
+      });
+
+      function BookES5(bookTitle, bookAuthor, comment) {
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.comment = comment;
+      }
+
+      const someBooksES5 = [
+        { title: "Ночь в Париже", author: "Эрих Мария Ремарк", comment: "Взята на 3 недели" },
+        { title: "Узорный покров", author: "Уильям Сомерсет Моэм", comment: "Имеет своего читателя" },
+      ];
+
+      const readerES5 = new ReaderES5("Петров", "Максим", "Юрьевич", 718435, "03.02.2002", "petrov@test.ru");
+      const booksES5 = someBooksES5.map((bookRequest) => new BookES5(...Object.values(bookRequest)));
+      console.log(`${readerES5.receiveBooks(booksES5)}\n${readerES5.returnBooks(booksES5)}`);
+
+      // Для каждой задачи желательно создать отдельные папки,
+      // каждый класс реализовать в отдельном файле className.js, где className является названием класса.
+    </script>
+  </head>
+  <body></body>
+</html>
