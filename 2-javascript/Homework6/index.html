@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 5</title>
+  </head>
+  <body>
+    <h1>Для задания 1</h1>
+    <div class="task1">
+      <table id="table1">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Имя<span class="sort-indicator"></span></th>
+            <th onclick="sortTable(1)">Отдел<span class="sort-indicator"></span></th>
+            <th onclick="sortTable(2)">Возраст<span class="sort-indicator"></span></th>
+            <th>Удалить</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vika</td>
+            <td>Front-end</td>
+            <td>32</td>
+            <td><button type="button" onclick="deleteRow(this)">Удалить</button></td>
+          </tr>
+          <tr>
+            <td>Ivan</td>
+            <td>Back-end</td>
+            <td>30</td>
+            <td><button type="button" onclick="deleteRow(this)">Удалить</button></td>
+          </tr>
+          <tr>
+            <td>Anna</td>
+            <td>Front-end</td>
+            <td>25</td>
+            <td><button type="button" onclick="deleteRow(this)">Удалить</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <form id="form1">
+          <div>
+            <input value="" placeholder="Имя" id="form1-name" />
+          </div>
+          <div>
+            <input value="" placeholder="Отдел" id="form1-department" />
+          </div>
+          <div>
+            <input value="" placeholder="Возраст" id="form1-age" />
+          </div>
+          <div>
+            <input type="button" value="Добавить новую строку" id="form1-btn" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      // 1. Написать функцию для сортировки таблицы #table1 по столбцу "Имя".
+      // В таблице может быть больше строк.
+      // Функцию сортировки необходимо вызывать при клике на столбце "Имя".
+      // Один клик на столбце, сортировка по алфавиту, второй клик, в обратном порядке.
+      // Также, можете добавить CSS стили на свое усмотрение.
+      // *2. Напишите функцию для добавления строк в таблицу из формы. Новые строки должны тоже учавствовать в сортировке.
+      // *3. Добавьте возможность удаления строк из таблицы. Это не должно как-то влиять на сортировку.
+      // Решение:
+
+      let orderOfSort = 1; // порядок сортировки
+      let sortedColumn = -1; //индекс отсортированного столбца
+      // Функция сортировки таблицы по выбранному столбцу
+      function sortTable(index) {
+        if (index === undefined) {
+          index = sortedColumn;
+        } else {
+          orderOfSort = index !== sortedColumn ? 1 : -orderOfSort;
+          sortedColumn = index;
+        }
+
+        // Сортировка таблицы после добавления новой строки
+        sortTable();
+
+        // Получение таблицы и ее строк
+        const rows = Array.from(table.tBodies[0].rows);
+
+        // Очищаем все индикаторы сортировки
+        const sortIndicators = document.querySelectorAll(".sort-indicator");
+        sortIndicators.forEach((item) => (item.textContent = ""));
+
+        // Установим индикатор
+        const sortIndicator = table.tHead.rows[0].cells[index].querySelector(".sort-indicator");
+        sortIndicator.textContent = orderOfSort === 1 ? " ↑" : " ↓";
+
+        // Сортировка строк в зависимости от выбранного столбца и текущего порядка сортировки
+        rows.sort((a, b) => {
+          const cellA = a.cells[index].textContent.toLowerCase();
+          const cellB = b.cells[index].textContent.toLowerCase();
+          return orderOfSort * cellA.localeCompare(cellB);
+        });
+
+        // Перестроение таблицы с отсортированными строками
+        for (const row of rows) {
+          table.tBodies[0].appendChild(row);
+        }
+      }
+
+      // Получение ссылки на DOM элемент
+      const table = document.getElementById("table1");
+
+      // Функция для добавления новой строки в таблицу из данных формы
+      function addRowFromForm() {
+        const table = document.getElementById("table1");
+        const name = document.getElementById("form1-name").value;
+        const department = document.getElementById("form1-department").value;
+        const age = document.getElementById("form1-age").value;
+
+        // Создание новой строки и ячеек
+        const newRow = table.tBodies[0].insertRow(); //добавляет новую строку в таблицу и возвращает на неё ссылку
+        const nameCell = newRow.insertCell(); // вставляет новую ячейку ( <td>) в строку таблицы ( <tr>) и возвращает ссылку на ячейку.
+        const departmentCell = newRow.insertCell();
+        const ageCell = newRow.insertCell();
+        const deleteCell = newRow.insertCell();
+
+        // Заполнение ячеек данными из формы
+        nameCell.textContent = name;
+        departmentCell.textContent = department;
+        ageCell.textContent = age;
+        deleteCell.innerHTML = '<button type="button" onclick="deleteRow(this)">Удалить</button>';
+
+        // Сброс формы
+        document.getElementById("form1-name").value = "";
+        document.getElementById("form1-department").value = "";
+        document.getElementById("form1-age").value = "";
+      }
+
+      // Функция для удаления строки из таблицы
+      function deleteRow(button) {
+        button.closest("tr").remove();
+      }
+
+      // Добавление обработчика события для кнопки добавления новой строки
+      document.getElementById("form1-btn").addEventListener("click", addRowFromForm);
+
+      // Пример:
+      // let sort1 = [1, 20, -3, 4].sort((a, b) => {
+      //   if(a > b) {
+      //     return 1;
+      //   } else {
+      //     return -1;
+      //   }
+      // });
+      // console.log(sort1);
+
+      // let sort2 = ["Петр", "Иван", "Анна"].sort((a, b) => {
+      //   if(a > b) {
+      //     return -1;
+      //   } else {
+      //     return 1;
+      //   }
+      // });
+      // console.log(sort2);
+
+      // // Получение строк таблицы
+      // let rows = Array.from(document.getElementById("table1").rows).splice(1);
+      // console.log(rows);
+    </script>
+
+    <h1>Для задания 2</h1>
+    <div class="task3" id="calendar"></div>
+    <div id="task3-form">
+      <form id="form2">
+        <!-- Добавьте необходимые поля формы -->
+      </form>
+
+      <form id="calendar-form">
+        <label for="year">Год:</label>
+        <input type="number" id="year" name="year" min="1900" max="2100" required />
+        <label for="month">Месяц:</label>
+        <input type="number" id="month" name="month" min="1" max="12" required />
+        <button type="submit">Создать календарь</button>
+        <button type="button" id="currentMonthBtn">Текущий месяц</button>
+      </form>
+      <div id="calendar"></div>
+    </div>
+    <style>
+      .task3 table {
+        border-collapse: collapse;
+      }
+
+      .task3 td,
+      .task3 th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+      }
+
+      .task3 th {
+        background-color: orange;
+        font-weight: bold;
+      }
+
+      .task3 td.red {
+        background-color: red;
+      }
+    </style>
+    <script>
+      // Создайте календарь в виде таблицы с помощью JavaScript
+      // Напишите функцию newCalendar(elementLink, year, month).
+
+      // Вызов функции newCalendar() создаст календарь для заданного месяца month в году year и вставить его внутрь elementLink.
+      // Календарь должен быть в виде таблицы (тег table), где неделя – это <tr>, а день – это <td>.
+      // У таблицы должен быть заголовок с названиями дней недели, каждый день – <th>.
+      // Первый день недели в календаре - понедельник.
+      // *Если выбран текущий месяц, подсветите красным текущий день на календаре.
+      // Пример вызова функции: newCalendar(elementLink, 2022, 1) сгенерирует календарь calendar.png
+
+      // Расширенное задание для занятия №5
+      // 1. *Создайте форму с помощью которой можно будет создавать календарь для любого месяца
+      // 2. *Добавьте кнопку для построения календаря за текущий месяц
+
+      // Подсказки
+      //   let year = 2022,
+      //     month = 1;
+      //   let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
+      //   let day = date.getDay(); // Получение номера дня недели
+      //   console.log(day);
+
+      //   date.setDate(date.getDate() + 1);
+      //   day = date.getDay(); // Получение номера дня в недели
+      //   console.log(day);
+
+      //   date.setDate(date.getDate() + 1);
+      //   day = date.getDay();
+      //   console.log(day);
+
+      // Решение:
+
+      function getDay(date) {
+        let day = date.getDay();
+        if (day === 0) day = 7;
+        return day - 1;
+      }
+
+      function newCalendar(elementLink, year, month) {
+        const dateMonth = month - 1;
+        const date = new Date(year, dateMonth);
+        const today = new Date();
+        const isCurrentMonth = today.getFullYear() === +year && today.getMonth() === +dateMonth;
+
+        let table = "<table><tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr><tr>";
+
+        // Пустые ячейки вначале
+        for (let i = 0; i < getDay(date); i++) {
+          table += "<td></td>";
+        }
+
+        // Дни недели
+        while (date.getMonth() === dateMonth) {
+          const isCurrentDay = isCurrentMonth && date.getDate() === today.getDate();
+          const activeClass = isCurrentDay ? "red" : "";
+
+          table += `<td class="${activeClass}">${date.getDate()}</td>`;
+
+          // Когда конец недели
+          if (getDay(date) % 7 === 6) {
+            table += "</tr><tr>";
+          }
+
+          date.setDate(date.getDate() + 1);
+        }
+
+        // Пустые ячейки в конце
+        if (getDay(date) !== 0) {
+          for (let i = getDay(date); i < 7; i++) {
+            table += "<td></td>";
+          }
+        }
+
+        table += "</tr><table>";
+        if (elementLink) {
+          elementLink.innerHTML = table;
+        }
+      }
+
+      newCalendar(document.querySelector("#calendar"), "2024", "4");
+
+      //*1
+      const form = document.querySelector("#calendar-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const year = form.year.value;
+        const month = form.month.value;
+        newCalendar(document.querySelector("#calendar"), year, month);
+      });
+
+      //*2
+      document.getElementById("currentMonthBtn").addEventListener("click", () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        newCalendar(document.querySelector("#calendar"), year, month);
+      });
+    </script>
+  </body>
+</html>
