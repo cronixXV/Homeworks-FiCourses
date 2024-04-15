@@ -78,8 +78,11 @@
           sortedColumn = index;
         }
 
-        // Сортировка таблицы после добавления новой строки
-        sortTable();
+        //Сортировка
+
+        if (sortedColumn === -1) {
+          return;
+        }
 
         // Получение таблицы и ее строк
         const rows = Array.from(table.tBodies[0].rows);
@@ -133,6 +136,9 @@
         document.getElementById("form1-department").value = "";
         document.getElementById("form1-age").value = "";
       }
+
+      // Сортировка таблицы после добавления новой строки
+      sortTable();
 
       // Функция для удаления строки из таблицы
       function deleteRow(button) {

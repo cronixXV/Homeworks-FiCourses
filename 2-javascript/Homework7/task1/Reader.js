@@ -1,11 +1,5 @@
 class Reader {
-  //значения по умолчанию
-  surname = null;
-  name = null;
-  patronymic = null;
-  readerTicketNumber = null;
-  birthdayDate = null;
-  mail = null;
+  //значение по умолчанию
   books = [];
 
   constructor(surname, name, patronymic, readerTicketNumber, birthdayDate, mail) {
@@ -15,7 +9,6 @@ class Reader {
     this.readerTicketNumber = readerTicketNumber;
     this.birthdayDate = birthdayDate;
     this.mail = mail;
-    this.books = [];
   }
 
   receiveBook(books) {
@@ -26,6 +19,10 @@ class Reader {
         newBooks.push(book);
       }
       answer += `"${book.bookTitle}", `;
+      // проверка
+      if (!Array.isArray(books)) {
+        return "Отсутствуют книги";
+      }
     }
     this.books = [...this.books, ...newBooks];
     return answer.trim().slice(0, -1);
@@ -38,6 +35,11 @@ class Reader {
         return oldBook != book;
       });
       answer += `"${book.bookTitle}", `;
+
+      // проверка
+      if (!Array.isArray(books)) {
+        return "Отсутствуют книги";
+      }
     }
     return answer.trim().slice(0, -1);
   }
