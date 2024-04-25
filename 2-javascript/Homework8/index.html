@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 7</title>
+    <script>
+      // Задание №1. Последовательная загрузка пользователей
+      let userUrls = ["users1.json", "users2.json"];
+
+      // Напишите скрипт, который все URL из этого массива загружает
+      // последовательно (один за другим) и затем сохраняет результаты в массиве data и выводит в консоль.
+
+      // Пример варианта с параллельной загрузкой пользователей:
+      // Promise.all( urls.map(function(url){}) ).then(function(users){});
+      // Важно. Загрузку пользователей нужно реализовать именно последовательно.
+
+      // Решение
+      async function loadUsers() {
+        let data = [];
+        // Объявляем асинхронную функцию для загрузки пользователей
+        for (let url of userUrls) {
+          // Перебираем каждый URL-адрес в массиве userUrls
+          let response = await fetch(url); // Делаем запрос к URL-адресу и ожидаем ответа с сервера
+          let user = await response.json(); // Ожидаем преобразования ответа в формат JSON и сохраняем результат в переменной user
+          // data.push(user); // Добавляем пользователя в массив data
+          data = data.concat(user);
+        }
+        console.log(data.flat()); // Выводим плоский массив data в консоль
+      }
+      loadUsers();
+
+      // Задание №2. Получение постов вместе с комментариями
+      // 2.1. Создайте функцию getPosts() для получения всех записей.
+      // URL: https://jsonplaceholder.typicode.com/posts/
+      // Создайте асинхронную функцию getcomments(postsId = []), которая получает на вход массив с идентификаторами
+      // постов и запрашивает комментарии к каждому посту и возвращает массив объектов-комментариев.
+      // URL: https://jsonplaceholder.typicode.com/posts/1/comments/
+      // 2.2. *Создать класс Post и Comment с полями из вышеприведенных URL. Создавать экземпляры классов
+      // после получения данных.
+
+      // Особенности:
+      // 1. На каждый пост при получении комментариев должен приходиться ровно один запрос fetch.
+      // 2. Запросы должны быть асинхронными (не должны ожидать завершения друг друга).
+      // Если, вдруг, какой-то запрос завершается ошибкой или выяснилось, что данных о запрашиваемых комментариях нет,
+      // то необходимо из функции возвращать null в общем массиве с результатами (комментарии).
+
+      // Решение
+
+      // Создаем классы Post и Comment
+      class Post {
+        constructor(id, title, body) {
+          this.id = id;
+          this.title = title;
+          this.body = body;
+        }
+      }
+
+      class Comment {
+        constructor(id, postId, name, email, body) {
+          this.id = id;
+          this.postId = postId;
+          this.name = name;
+          this.email = email;
+          this.body = body;
+        }
+      }
+
+      // Создаем функцию для получения всех постов
+      async function getPosts() {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const data = await response.json();
+        return data.map((post) => new Post(post.id, post.title, post.body));
+      }
+
+      // Создаем функцию для получения комментариев к постам
+      async function getComments(postIds = []) {
+        const commentsPromises = postIds.map((id) =>
+          fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+            .then((response) => response.json())
+            .then((comments) => comments.map((comment) => new Comment(comment.id, comment.postId, comment.name, comment.email, comment.body)))
+        );
+
+        const commentsArrays = await Promise.all(commentsPromises);
+        return [].concat.apply([], commentsArrays);
+      }
+
+      // Вызываем функцию getPosts и получаем все посты
+      getPosts().then((posts) => {
+        // Вызываем функцию getComments и получаем все комментарии к постам
+        getComments(posts.map((post) => post.id)).then((comments) => {
+          console.log(posts);
+          console.log(comments);
+        });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
