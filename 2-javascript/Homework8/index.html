@@ -18,17 +18,17 @@
       // Важно. Загрузку пользователей нужно реализовать именно последовательно.
 
       // Решение
-      let data = []; // Массив для хранения загруженных пользователей
-
       async function loadUsers() {
+        let data = [];
         // Объявляем асинхронную функцию для загрузки пользователей
         for (let url of userUrls) {
           // Перебираем каждый URL-адрес в массиве userUrls
           let response = await fetch(url); // Делаем запрос к URL-адресу и ожидаем ответа с сервера
           let user = await response.json(); // Ожидаем преобразования ответа в формат JSON и сохраняем результат в переменной user
-          data.push(user); // Добавляем пользователя в массив data
+          // data.push(user); // Добавляем пользователя в массив data
+          data = data.concat(user);
         }
-        console.log(data); // Выводим массив data в консоль
+        console.log(data.flat()); // Выводим плоский массив data в консоль
       }
       loadUsers();
 
