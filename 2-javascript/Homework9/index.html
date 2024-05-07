@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 8</title>
+    <script>
+      // Задание №1. Секундомер
+      // 1.1. Создайте пользовательскую функцию stopwatch(start, end),
+      // которая выводит в консоль число каждую секунду, начиная от числа start и заканчивая end.
+
+      // Первый вариант функции stopwatch(start, end) реализуйте с использованием setInterval.
+      // *Второй вариант функции stopwatch(start, end) - через рекурсивный setTimeout.
+
+      // Решение
+      //1)
+      // function stopwatch(start, end) {
+      //   let current = start;
+
+      //   const intervalId = setInterval(() => {
+      //     console.log(current);
+      //     current++;
+
+      //     if (current > end) {
+      //       clearInterval(intervalId);
+      //     }
+      //   }, 1000);
+      // }
+
+      // stopwatch(5, 10);
+
+      //2)
+      function stopwatch(start, end) {
+        let current = start;
+
+        function printNum() {
+          console.log(current);
+
+          if (current < end) {
+            current++;
+            setTimeout(printNum, 1000);
+          }
+        }
+
+        printNum();
+      }
+
+      stopwatch(5, 10);
+
+      // Задание №2. Пользовательский класс для обработки ошибок
+      // 2.1. В задание к предыдущему уроку (Получение постов вместе с комментариями) добавить класс CommentError,
+      // который наследует встроенный в JS класс Error.
+      // 2.2. Искусственно добавьте ошибку при получении комменариев,
+      // используйте пользовательский класс CommentError при обработке ошибок вместо добавления null в массив.
+
+      class CommentError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = this.constructor.name;
+          // this.name = 'CommentError'
+        }
+      }
+
+      // Создаем классы Post и Comment
+      class Post {
+        constructor(id, title, body) {
+          this.id = id;
+          this.title = title;
+          this.body = body;
+        }
+      }
+
+      class Comment {
+        constructor(id, postId, name, email, body) {
+          this.id = id;
+          this.postId = postId;
+          this.name = name;
+          this.email = email;
+          this.body = body;
+        }
+      }
+
+      // Создаем функцию для получения всех постов
+      async function getPosts() {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        const data = await response.json();
+        return data.map((post) => new Post(post.id, post.title, post.body));
+      }
+
+      // Создаем функцию для получения комментариев к постам
+      async function getComments(postIds = []) {
+        const commentsPromises = postIds.map((id) => {
+          // Проверка работы пользовательского класса
+          if (+id === 10) {
+            throw new CommentError(
+              `Ошибка при получении комментариев к посту с id ${id}`
+            );
+          }
+
+          return fetch(
+            `https://jsonplaceholder.typicode.com/posts/${id}/comments`
+          )
+            .then((response) => response.json())
+            .then((comments) =>
+              comments.map(
+                (comment) =>
+                  new Comment(
+                    comment.id,
+                    comment.postId,
+                    comment.name,
+                    comment.email,
+                    comment.body
+                  )
+              )
+            );
+        });
+
+        return await Promise.all(commentsPromises);
+      }
+
+      // Вызываем функцию getPosts и получаем все посты
+      getPosts().then((posts) => {
+        try {
+          // Вызываем функцию getComments и получаем все комментарии к постам
+          getComments(posts.map((post) => post.id)).then((comments) => {
+            console.log(posts);
+            console.log(comments);
+          });
+        } catch (error) {
+          console.log(error.name, error.message);
+        }
+      });
+
+      // Задание №3. Курсовой проект "Плеер" в ООП стиле
+      // 3.1. Перепишите курсовой проект с использованием классов.
+      // 3.2. Вынесите название композиций в отдельный файл. Получите названия песен с помощью AJAX.
+      // *3.3. Подумайте, где можно использовать конструкцию try...catch в курсовом проекте.
+    </script>
+  </head>
+  <body></body>
+</html>
