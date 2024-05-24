@@ -3,7 +3,7 @@ import fs from "fs";
 
 //задание 1
 function printFileStatsFromTextFile(filename) {
-  const fileContent = fs.readFileSync("./files/text.txt" + filename, "utf8");
+  const fileContent = fs.readFileSync("./files/" + filename, "utf8");
   const lines = fileContent.split("\n");
 
   console.log(fileContent);
@@ -12,7 +12,7 @@ function printFileStatsFromTextFile(filename) {
 
 //задание 2
 function countLettersAndDigitsSpaces(filename) {
-  const fileContent = fs.readFileSync("./files/text.txt" + filename, "utf8");
+  const fileContent = fs.readFileSync("./files/" + filename, "utf8");
   let letters = 0;
   let digits = 0;
   let spaces = 0;
@@ -105,8 +105,8 @@ function calculateWithStyling(num1, operation, num2) {
   console.log(chalk.green(`Результат: ${result}\n`));
 }
 
-printFileStatsFromTextFile("test.txt");
-countLettersAndDigitsSpaces("test.txt");
+printFileStatsFromTextFile("text.txt");
+countLettersAndDigitsSpaces("text.txt");
 printEvenOrOddNumbers("even");
 calculate(2, "*", 3);
 calculateWithStyling(2, "+", 3);
