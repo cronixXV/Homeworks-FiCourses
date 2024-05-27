@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
+const path = require("path");
 
 // Технологии
 let technologies = [
@@ -22,6 +23,21 @@ let feedbacks = [];
 http
   .createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
+
+    // Обработка статических файлов
+    if (req.method === "GET" && parsedUrl.pathname.startsWith("/static")) {
+      const filePath = path.join(__dirname, parsedUrl.pathname);
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+          res.writeHead(404);
+          res.end("Not found");
+        } else {
+          res.writeHead(200, { "Content-Type": "text/html" });
+          res.end(data);
+        }
+      });
+      return;
+    }
 
     if (req.method === "GET" && parsedUrl.pathname === "/technologies") {
       res.writeHead(200, { "Content-Type": "application/json" });
@@ -78,6 +94,7 @@ http
         res.end();
       });
     } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
       fs.readFile("portfolio.html", (err, data) => {
         if (err) {
           res.writeHead(404);
@@ -92,3 +109,5 @@ http
   .listen(3000, () => {
     console.log("Server running at http://localhost:3000/");
   });
+
+// Добавлена обработка статических файлов в папке "static"
