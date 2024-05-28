@@ -39,6 +39,21 @@ http
       return;
     }
 
+    // Обработка JavaScript-файлов
+    else if (req.method === "GET" && parsedUrl.pathname.endsWith(".js")) {
+      const filePath = path.join(__dirname, parsedUrl.pathname);
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+          res.writeHead(404);
+          res.end("Not found");
+        } else {
+          res.writeHead(200, { "Content-Type": "application/javascript" });
+          res.end(data);
+        }
+      });
+      return;
+    }
+
     if (req.method === "GET" && parsedUrl.pathname === "/technologies") {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(technologies));
@@ -109,5 +124,3 @@ http
   .listen(3000, () => {
     console.log("Server running at http://localhost:3000/");
   });
-
-// Добавлена обработка статических файлов в папке "static"
