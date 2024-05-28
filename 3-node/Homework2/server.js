@@ -109,10 +109,9 @@ http
         res.end();
       });
     } else {
-      res.writeHead(200, { "Content-Type": "text/html" });
       fs.readFile("portfolio.html", (err, data) => {
         if (err) {
-          res.writeHead(404);
+          res.writeHead(404, { "Content-Type": "text/html" });
           res.end("Not found");
         } else {
           res.writeHead(200, { "Content-Type": "text/html" });

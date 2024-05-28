@@ -1,7 +1,7 @@
 fetch("/technologies")
   .then((response) => response.json())
   .then((technologies) => {
-    const techList = document.querySelector(".tech-list");
+    const techList = document.querySelector("#tech-list");
     technologies.forEach((tech) => {
       const techItem = document.createElement("div");
       techItem.classList.add("tech-item");
