@@ -62,11 +62,11 @@ app.post("/feedback", (req, res) => {
 });
 
 // Endpoint для отдачи статических файлов
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Маршрут для отправки файла portfolio.html
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "portfolio.html"));
+  res.sendFile(path.join(__dirname, "public", "portfolio.html"));
 });
 
 // Запуск сервера
