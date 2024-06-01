@@ -4,10 +4,10 @@ const Technology = require("../models/technology");
 const Project = require("../models/project");
 
 //Маршрут GET для получения всех технологий
-router.get("/technologies", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const technologies = await Technology.find();
-    res.json(technologies);
+    const projects = await Project.find();
+    res.json(projects);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
