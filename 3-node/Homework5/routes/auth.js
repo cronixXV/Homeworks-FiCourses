@@ -1,12 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-//@ts-ignore
 const User = require("../models/user");
 const path = require("path");
 
 const router = express.Router();
 
-router.post("/registration", async (req, res) => {
+router.post("/api/auth/registration", async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();
@@ -42,10 +41,6 @@ router.post("/login", async (req, res) => {
     ...plainUser,
     token: jwt.sign(plainUser, process.env.JWT_SIFN_KEY),
   });
-});
-
-router.get("/registration", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "registration.html"));
 });
 
 module.exports = router;

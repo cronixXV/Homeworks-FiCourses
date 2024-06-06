@@ -21,7 +21,7 @@
             ".form-input-password"
           ).value;
 
-          fetch("http://localhost:3000/api/auth/registration", {
+          fetch("/api/auth/registration", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

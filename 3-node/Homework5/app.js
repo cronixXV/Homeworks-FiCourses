@@ -9,6 +9,7 @@ const projectRoutes = require("./routes/projects");
 const path = require("path");
 const passport = require("passport");
 require("./middleware/passportMiddleWare");
+const auth = require("./routes/auth");
 
 const app = express();
 app.use(bodyParser.json());
@@ -97,12 +98,6 @@ app.post("/feedback", async (req, res) => {
     console.error(err);
     res.status(500).send("Server error");
   }
-});
-
-// Endpoint для отдачи статических файлов
-app.use(express.static(path.join(__dirname, "public")));
-app.get("/api/auth/registration", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "registration.html"));
 });
 
 // Маршрут для отправки файла portfolio.html
