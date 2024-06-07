@@ -5,7 +5,7 @@ const path = require("path");
 
 const router = express.Router();
 
-router.post("/api/auth/registration", async (req, res) => {
+router.post("/registration", async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();

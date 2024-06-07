@@ -35,6 +35,8 @@ app.use(
 
 // Подключение маршрутов для проектов
 app.use("/api/projects", projectRoutes);
+app.use("/api/auth", auth);
+// app.use("/api/login", login);
 
 // Endpoint для получения списка технологий
 app.get("/technologies", async (req, res) => {
@@ -104,6 +106,8 @@ app.post("/feedback", async (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "portfolio.html"));
 });
+
+app.use(express.static(__dirname + "/public"));
 
 // Запуск сервера
 const PORT = process.env.PORT || 3000;
