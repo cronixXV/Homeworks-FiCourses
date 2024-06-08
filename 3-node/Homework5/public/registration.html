@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Регистрация</title>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const registrationForm = document.querySelector("#registration-form");
+
+      if (registrationForm) {
+        registrationForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const username = registrationForm.querySelector(
+            ".form-input-firstname"
+          ).value;
+          const email =
+            registrationForm.querySelector(".form-input-email").value;
+          const password = registrationForm.querySelector(
+            ".form-input-password"
+          ).value;
+
+          fetch("/api/auth/registration", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: username,
+              email: email,
+              password: password,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.message) {
+                alert(data.message);
+              } else if (data.email) {
+                alert(
+                  "Успешная регистрация. Вы будете направлены на страницу авторизации"
+                );
+                window.location.href = "/login.html";
+              } else {
+                alert("Ошибка на стороне сервера");
+              }
+            })
+            .catch((error) => {
+              console.error("Ошибка при регистрации:", error);
+            });
+        });
+      }
+    });
+  </script>
+  <body>
+    <h1>Форма регистрации</h1>
+    <form id="registration-form">
+      <label>
+        Имя:<br />
+        <input type="text" class="form-input-firstname" required /> </label
+      ><br />
+      <label>
+        Email:<br />
+        <input type="email" class="form-input-email" required /> </label
+      ><br />
+      <label>
+        Пароль:<br />
+        <input type="password" class="form-input-password" required /> </label
+      ><br />
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </body>
+</html>
